@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Sociale</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="icon" type="image/png" href="icon/pig2.png" />
+        <script type="text/javascript">
+            function afficher(valeur)
+            {
+                if(document.getElementById(valeur).style.display == 'none')
+                {
+                    document.getElementById(valeur).style.display = 'block';
+
+                }
+                else
+                {
+                    document.getElementById(valeur).style.display = 'none';
+                }
+            }
+        </script>
+    </head>
+
+    <body id="body">
+
+        <div id='position_logo'>
+            <img id="logo" src="icon/Logo.svg">
+            <div>
+                <h1>Epi'Flex<br>
+                <h2>L'épicerie qui s'adapte à l'économie</h2>
+           </div>
+        </div>
+
+        <header id="header">
+            <ul id="ul1">
+                <li><a href="sociale.html" id="actif">>Sociale et solidaire</a></li>
+                <li><a href="equitable.html">Équitable</a></li>
+                <li><a href="responsable.html">Responsable</a></li>
+                <li><a href="epiflex.html">Le projet Epi'Flex</a></li>
+            </ul>
+        </header>
+        
+        <section>
+            <img src="icon/pig.png" alt="" class="img">
+            <img src="icon/poille.png" alt="" class="paille">
+
+            <p id="intro">Présentation de l'économie sociale et solidaire</p>
+
+            <p id="test" class="click" onclick="afficher('test1')">Qu’est ce que l’économie sociale et solidaire?</p>
+
+            <div id="test1" style="display:none;">
+                <p class="sous_titre" onclick="afficher('test2')">Dictionnaire</p>
+                <p id="test2" style="display:none;" class="dico"> 
+                    D'après Larousse "L'économie sociale ou économie sociale et solidaire (ESS) est la branche de l'économie regroupant les organisations privées (entreprises, coopératives, associations, mutuelles ou fondations) qui cherchent à concilier activité économique et équité sociale."
+                </p>
+                <p>
+                    La mondialisation a augmenté les échanges parfois au détriment des producteurs et de l’environnement, c’est pourquoi l’économie sociale et solidaire veut renouer des liens entre le consommateur et le producteur. 
+                    L’ESS  correspond à la démocratisation de l’économie en se détachant d’une image traditionnelle cherchant uniquement les bénéfices, la croissance économique et négligeant l’aspect social, elle existe déjà depuis longtemps et répond à des problématiques actuelles.
+                    Jean-Louis Laville (1999), définissent pourtant l’ESS comme « l’ensemble des activités contribuant à la démocratisation de l’économie à partir d’engagements citoyens ».
+                </p>
+            </div>
+
+            <p id="test" class="click" onclick="afficher('test3')">Quels sont les enjeux de l’économie sociale et solidaire?</p>
+            <div id="test3" style="display:none;">
+                <p>
+                    <p class="sous_titre">Réconcilier l’économie et l’écologie</p>
+
+
+                    <p>La biodiversité est essentielle au bon fonctionnement de la planète et à la survie de l’espèce humaine. A cause de la surexploitation des ressources naturelles dû à des méthodes de production trop intensives maintenues par les pays industrialisés et les pays en voie de développement, le développement durable a souvent été mis de côté et n’est plus - ou rarement -  associé à l’économie. De plus, ces modifications sur l’environnement ont de gros impacts négatifs sur les populations locales et les peuples dont l’activité principale se base sur la production  de matières premières ou dépendent de leur écosystème. L’économie sociale et solidaire souhaite modifier cela en introduisant la notion d'Écologie industrielle. Le but final étant de se diriger vers l’utilisation quasi-totale des énergies renouvelables pour ne plus être exclusivement dépendant des énergies fossiles.
+                    </p>
+                     <p class="sous_titre">Ecologie industrielle:</p>
+
+
+                    <p>L’écologie industrielle est une notion pluridisciplinaire qui essaye d'assimiler le fonctionnement des écosystèmes industriels à celui des écosystèmes naturels en optimisant les processus de production pour minimiser l’empreinte carbone des cycles industriels, maximiser l’utilisation des ressources pour limiter la production de déchets ( pertes ) ou produits polluants et ainsi utiliser au minimum les ressources naturelles. 
+                    </p>
+                    <p class="sous_titre">Produire de l’emploi </p>
+
+
+                    <p>L’ESS étant un domaine en plein développement et vaste, il comporte énormément secteurs et représente une vraie dynamique en terme de création d’emplois en France mais aussi en Europe et dans le monde. 
+                    </p>
+                    <p class="sous_titre">Instaurer une justice sociale</p>
+
+
+                    <p>Depuis longtemps les plus démunis ( jeunes, personnes âgées, migrants .. ) ne peuvent pas faire entendre leurs droits et prétendre à un partage équitable des richesses. Les petits producteurs qui sont eux aussi à l’origine des échanges en produisant les matières premières sont loin d’être les plus avantagés dans le système économique actuel.
+                    L’ESS souhaite promouvoir la distribution d’aides au logement, accès à la terre, à l’alimentation, aux soins, instaurer une cohésion sociale et réduire la hiérarchie établie actuellement entre les personnes démunies citées précédemment et les autres producteurs et entreprises pour favoriser une croissance qui ne laisse personne de côté.
+                    </p>
+                    <p class="sous_titre">Adapter le tourisme</p>
+
+
+                    <p>Le tourisme est une activité génératrice de revenus dans beaucoup de pays et certaines populations en vivent quasiment exclusivement, hors le tourisme de masse peut 
+                    représenter des menaces pour la biodiversité. De plus, les bénéfices tirés de ce tourisme de masse n’est pas tout le temps reversé aux communautés locales, c’est pourquoi des entrepreneurs solidaires proposent des projets de tourisme basés sur la communauté.
+                    </p>
+                    <p class="sous_titre">Soutenir le développement durable</p>
+
+
+                    <p>
+                        <img id="dev" src="icon/dev.svg"/>
+                        <br>
+                        Comme dit précedemment l’economie sociale et solidaire souhaite réduire la pauvreté, proposer un modèle économique alternatif, et préserver l’environnement. Toutes ces notions et bien d’autres se retrouvent dans le développement durable à proprement parler.
+                    </p>
+                    
+                    <p class="sous_titre">larousse:</p>
+                    <p>Mode de développement qui assure la satisfaction des besoins essentiels des générations actuelles, particulièrement des personnes les plus démunies, tout en sauvegardant la capacité des générations futures à satisfaire leurs propres besoins.  
+                    <br>
+
+                </p>
+
+                <p>
+                    L’économie sociale et solidaire regroupe un nombre colossal de domaines qui ne sauraient tous être exposés en détail, nos sources sont toutes cités dans l’onglet “ Bibliographie et sources “ en bas de la page, n’hésitez pas à y jetter un coup d’oeil en cas d’incompréhension ou pour des informations supplémentaires.
+                </p>
+                
+                
+            </div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/k5nEI0bMMdc" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+        </section>
+        
+        <footer>
+            <ul>
+                <li>Site réalisé par </li>
+                <li>Valentin Bossard</li>
+                <li>Alexis Melo Da Silva</li>
+            </ul>
+
+            <ul id="centrer">
+                <li class="bas_de_page"><a href="sources.html" target="_blank">Bibliographie et Sources</a></li>
+                <br>
+                <li class="bas_de_page"><a href="#body">Haut de page</a></li>
+            </ul>
+            
+            <ul id="droite">
+                <li>TP 2.2 DUT Info</li>
+                <li>Ifs 14123</li>
+                <li> <a href="mailto:epiflex@trojan.fr">epiflex@trojan.fr</a></li>
+            </ul>
+        </footer>
+
+    </body>
+</html>

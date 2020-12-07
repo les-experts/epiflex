@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Equitable</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="icon" type="image/png" href="icon/pig2.png" />
+        <script type="text/javascript">
+            function afficher(valeur)
+            {
+                if(document.getElementById(valeur).style.display == 'none')
+                {
+                    document.getElementById(valeur).style.display = 'block';
+
+                }
+                else
+                {
+                    document.getElementById(valeur).style.display = 'none';
+                }
+            }
+        </script>
+    </head>
+
+    <body id="body">
+
+        <div id='position_logo'>
+            <img id="logo" src="icon/Logo.svg">
+            <div>
+                <h1>Epi'Flex<br>
+                <h2>L'épicerie qui s'adapte à l'économie</h2>
+           </div>
+        </div>
+
+        <header id="header">
+            <ul id="ul1">
+                <li><a href="sociale.html">Sociale et solidaire</a></li>
+                <li><a href="equitable.html" id="actif">>Équitable</a></li>
+                <li><a href="responsable.html">Responsable</a></li>
+                <li><a href="epiflex.html">Le projet Epi'Flex</a></li>
+            </ul>
+        </header>
+        
+        <section>
+            <img src="icon/pig.png" alt="" class="img">
+            <img src="icon/poille.png" alt="" class="paille">
+
+            <p id="intro">Présentation du commerce équitable</p>
+            <p id="test" class="click" onclick="afficher('test1')">Qu’est ce que le commerce équitable ? </p>
+            <div id="test1" style="display:none;">
+                <p class="sous_titre" onclick="afficher('test2')">Dictionnaire</p>
+                <p id="test2" style="display:none;" class="dico"> 
+                    D'après Larousse "Type d'échanges internationaux fondés sur une solidarité Nord-Sud, les consommateurs du Nord acceptant d'acheter des marchandises à des prix permettant aux producteurs du Sud d'améliorer leurs conditions de vie et de travail, dans une perspective de développement durable."  
+
+                </p>
+            
+                
+                    <p>
+                        Le commerce équitable est une alternative au commerce mondial. Cela permet aux producteurs de mieux vivre de leur métier. Le commerce équitable est aussi un des piliers d’une économie respectueuse des droits économiques, sociaux culturels et environnementaux.
+                        De plus, le commerce équitable repose sur une organisation des échanges visant à équilibrer le rapport producteur / consommateur entre les pays développés et les pays en développement.
+                    </p>
+            </div>
+                    <div>
+                    <p class="click" onclick="afficher('test3')">Comment le commerce équitable est-il né ?</p>
+                    <p id="test3" style="display:none;">
+                        Le commerce équitable est né de la volonté de réajuster le jeu du commerce international qui fait reposer sur les petits producteurs et artisans des pays en développement une forte pression. Son objectif est de changer les modes de production et de consommation pour leur assurer un travail mieux payé, dans de meilleures conditions.
+                    </p>
+                    
+                    <p class="click" onclick="afficher('test4')">Quelques critères</p>
+                    <div id="test4" style="display:none;">
+                        <p>Critères généraux du commerce équitable</p>
+                        <p>Economiques </p>
+                        <ul>
+                            <li>accès au marché facilité</li>
+                            <li>paiement d’un prix juste</li>
+                            <li>relations commerciales à long terme</li>
+                            <li>préfinancement des commandes si besoin</li>
+                            <li>transparence et traçabilité</li>
+                        </ul>
+
+                        <p>Sociaux </p>
+                        <ul>
+                            <li>respect des conventions fondamentales de l’OIT</li>
+                            <li>absence du travail des enfants et du travail forcé</li>
+                        </ul>
+
+                        <p>Environnementaux </p>
+                        <ul>
+                            <li>respect de la biodiversité</li>
+                            <li>interdiction des substances dangereuses</li>
+                            <li>utilisation des ressources naturelles</li>
+                            <li>gestion écologique des déchets et des emballages</li>
+                        </ul>
+
+                        <p>Sensibilisation</p>
+                        <ul>
+                            <li>sensibilisation des populations aux enjeux d’un commerce mondial plus juste</li>
+                        </ul>
+                    </div>
+                    
+                     <p class="click" onclick="afficher('test5')">Quelques chiffres </p>
+                     <p>
+                        <ul id="test5" style="display:none;">
+                            <li>En 2012, il y a plus de deux millions de producteurs et de travailleurs qui bénéficient du commerce équitable dans le monde.</li>
+                            <li>80 millions de familles consomment "équitable"</li>
+                            <li>La part des produits du commerce équitable dans les échanges mondiaux représente 5 milliards d'euros en 2012.</li>
+                            <li>Chaque Français a consacré seulement 6,24 euros à ses achats équitables en 2012.</li>
+                            <li>Le gouvernement évalue à 400 le nombre d’entreprises françaises qui travaillent dans ce secteur, ce qui correspond à environ 10.000 emplois.</li>
+                        </ul>
+                     </p>
+
+
+                    <p class="click" onclick="afficher('test6')">Répartition des producteurs équitables dans le monde </p>
+                    <img id="test6"  style="display:none;" src="icon/producteur.jpg"/>
+
+
+                    <p class="click" onclick="afficher('test7')">Label</p>
+                    <div id="test7" style="display:none;">
+                        <p>Afin de reconnaître les produits issus du commerce équitable, certains label ont été mis en place.</p>
+                        <img  src="icon/label.jpg"/>
+                    </div>
+                    
+                    
+                </div>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/bxnoyMVKnqM" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+        </section>
+        
+        <footer>
+            <ul>
+                <li>Site réalisé par </li>
+                <li>Valentin Bossard</li>
+                <li>Alexis Melo Da Silva</li>
+            </ul>
+
+            <ul id="centrer">
+                <li class="bas_de_page"><a href="sources.html" target="_blank">Bibliographie et Sources</a></li>
+                <br>
+                <li class="bas_de_page"><a href="#body">Haut de page</a></li>
+            </ul>
+            
+            <ul id="droite">
+                <li>TP 2.2 DUT Info</li>
+                <li>Ifs 14123</li>
+                <li> <a href="mailto:epiflex@trojan.fr">epiflex@trojan.fr</a></li>
+            </ul>
+        </footer>
+
+    </body>
+</html>

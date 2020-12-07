@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Responsable</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="icon" type="image/png" href="icon/pig2.png" />
+        <script type="text/javascript">
+            function afficher(valeur)
+            {
+                if(document.getElementById(valeur).style.display == 'none')
+                {
+                    document.getElementById(valeur).style.display = 'block';
+
+                }
+                else
+                {
+                    document.getElementById(valeur).style.display = 'none';
+                }
+            }
+        </script>
+    </head>
+
+    <body id="body">
+
+        <div id='position_logo'>
+            <img id="logo" src="icon/Logo.svg">
+            <div>
+                <h1>Epi'Flex<br>
+                <h2>L'épicerie qui s'adapte à l'économie</h2>
+           </div>
+        </div>
+
+        <header id="header">
+            <ul id="ul1">
+                <li><a href="sociale.html">Sociale et solidaire</a></li>
+                <li><a href="equitable.html">Équitable</a></li>
+                <li><a href="responsable.html" id="actif">>Responsable</a></li>
+                <li><a href="epiflex.html">Le projet Epi'Flex</a></li>
+            </ul>
+        </header>
+        
+        <section>
+            <img src="icon/pig.png" alt="" class="img">
+            <img src="icon/poille.png" alt="" class="paille">
+
+            <p id="intro">Explication du concept de la consommation responsable</p>
+
+            <p id="test" class="click" onclick="afficher('test1')">Qu’est ce que la consommation responsable ? </p>
+
+            <div id="test1" style="display:none;">
+                <p class="sous_titre" onclick="afficher('test2')">Dictionnaire</p>
+                <p id="test2" style="display:none;" class="dico"> 
+                    D’après E-rse.net 
+                    "La consommation responsable, c’est un mode de consommation qui prend en compte les critères du développement durable, c’est-à-dire une consommation qui soit à la fois respectueuse de l’environnement, bénéfique pour l’économie (notamment locale), bonne pour la santé, mais aussi positive pour la société."
+
+                </p>
+                <p>
+                   A ne pas confondre avec la notion de consommation durable qui s’appuie surtout sur une dimension environnementale, la consommation responsable englobe la consommation durable agrémentée de notions mêlant l’impact social, économique, sanitaire ou sur la qualité de vie. 
+                    <br>
+                </p>
+            </div>
+            <p id="test" class="click" onclick="afficher('test3')">Qu’est ce que la consommation responsable ? </p>
+            
+            <div id="test3" style="display:none;">
+                
+                <p class="sous_titre" onclick="afficher('test4')">Consommer des produits écologiques</p>
+                <p>Il doit regarder l’impact sur l’environnement des produits qu’il achète, depuis leur production jusqu’à leur consommation</p>
+                    <ul id="test4">
+                        <li>des produits issus de filières certifiées respectant l’environnement ou la biodiversité</li>
+                        <li>des produits avec un bilan carbone faible</li>
+                       <li> des produits biologique</li>
+                        <li>des produits qui évitent de façon générale les pollutions, la déforestation et l’épuisement des ressources naturelles </li>
+                    </ul>
+                    
+                    <p class="sous_titre" onclick="afficher('test5')">Consommer des produits normés</p>
+                    <p>Il doit consommer des produits qui respectent les normes sociales et surveiller leur impact sur les sociétés </p>
+                    <ul id="test5">
+                        <li>des produits fabriqués dans de bonnes conditions de travail (pas de travail des enfants, respect des horaires et des conventions internationales sur le travail)</li>
+                        <li>des produits fabriqués dans le respect des normes éthiques (corruption notamment)</li>
+                        <li>des produits fabriqués en coopération avec les communautés locales, en respectant leurs modes de vie (comme le commerce équitable)</li>
+                    </ul>
+                    
+                    <p class="sous_titre" onclick="afficher('test6')">Consommer des produits sains </p>
+                    <p>Il doit surveiller que les produits qu’il consomme respectent les normes sanitaires</p>
+                    <ul id="test6">
+                        <li>produits sans pesticides ou sans intrants chimiques</li>
+                        <li>produits fabriqués en respectant les normes d’hygiène</li>
+                        <li>des produits alimentaires ayant une composition nutritionnelle plus saine</li>
+                    </ul>
+                   
+                    <p class="sous_titre" onclick="afficher('test7')">Consommer des produits positifs</p>
+                   <p> Il doit s’assurer que les produits qu’il consomme ont un impact positif sur l’économie</p>
+                    <ul id="test7">
+                       <li> des produits fabriqués localement, via des circuits courts</li>
+                        <li>des productions qui encouragent l’autonomie économique de leurs producteurs </li>
+                        <li>des produits créant plus d’emploi, d’insertion économique et sociale pour les travailleurs</li>
+                        <li>des productions favorisant la qualité de vie au travail des salariés</li>
+                    </ul>
+                    
+                    <p class="sous_titre" onclick="afficher('test8')">Consommer des produits éthiques</p>
+                    <p>Il doit se renseigner sur les conditions de fabrication pour vérifier si le produit a bien été produit selon des principes éthiques ou moraux</p>
+                    <ul id="test8">
+                        <li>le respect du bien-être animal</li>
+                        <li>le respect de l’équité, des libertés individuelles</li>
+                        <li>tout autre principe contribuant au développement de l’intérêt général</li>
+                    </ul>
+            </div>
+
+            <p id="test" class="click" onclick="afficher('test9')">Qui est le consommateur responsable typique en France ? </p>
+            <div id="test9" style="display:none;">
+                <p>
+                    Si vous vous reconnaissez dans la majorité des critères, alors vous pouvez vous considérer comme consommateurs responsables.
+                    Attention néanmoins, la notion de responsabilité lors de la consommation est relative et peut varier d’une population, région ou pays à l’autre, l’important est d’avoir conscience de ce que l’on consomme, des méthodes de fabrication, d’acheminement et de commercialisation des produits.
+                </p>
+                <ul>
+                        <li>Il consomme bio</li>
+                    <p class="puce"> 85% des consommateurs sont intéressés par des produits bios, surtout locaux</p>
+
+                   <li> Il paye plus cher ses produits</li>
+                     <p class="puce"> Les français sont prêts à payer 5 à 30% plus cher pour accéder à une alimentation plus qualitative</p>
+
+                      <li>  Il se déplace en transports alternatifs</li>
+                    <p class="puce">  Il faut favoriser l’usage de vélos à assistance electrique, le covoiturage, et les start-up mettant à disposition des vélos ( tout le système des Velib’ à Paris par exemple )</p>
+
+                       <li> Il épargne, mais solidairement</li>
+                   <p class="puce">   La finance solidaire a plus d’un million d’épargnants et pèse 9,76 milliards d’euros
+
+                     <li>   Il consomme collaborativement</li>
+                    <p class="puce">  La consommation collaborative c’est le fait de faire prédominer l’usage sur la propriété, par exemple lors de covoiturages, kickstarters, les formes qui organisent le prêt</p>
+
+                     <li>   Il fait attention aux labels écologiques </li>
+                     <p class="puce"> Pour les français, les famille de produits où la consultation des labels est récurrente sont l’hygiène, l’entretien et le jardinage</p>
+                       <li> Il privilégie l’achat de produits de saison</li>
+                    <p class="puce">Davantage pour les personnes âgées ( 65+ ans ) que pour les jeunes ( 18-24 )</p>
+
+                      <li>  Il consomme uniquement si c’est nécessaire</li>
+                    <p class="puce">  Pas de superflue, il achète ce dont il a besoin, quand il a besoin </p>
+
+                     <li>   Il recycle et privilégie le biodégradable</li>
+                   <p class="puce">   Après la consommation, il faut recycler le peu de déchets qu’il reste, afin de les réduire au maximum, il faut privilégier les produits avec un emballage biodégradable</p>
+                </ul>
+            </div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/8wW0K37ffac" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+        </section>
+        
+        <footer>
+            <ul>
+                <li>Site réalisé par </li>
+                <li>Valentin Bossard</li>
+                <li>Alexis Melo Da Silva</li>
+            </ul>
+
+            <ul id="centrer">
+                <li class="bas_de_page"><a href="sources.html" target="_blank">Bibliographie et Sources</a></li>
+                <br>
+                <li class="bas_de_page"><a href="#body">Haut de page</a></li>
+            </ul>
+            
+            <ul id="droite">
+                <li>TP 2.2 DUT Info</li>
+                <li>Ifs 14123</li>
+                <li> <a href="mailto:epiflex@trojan.fr">epiflex@trojan.fr</a></li>
+            </ul>
+        </footer>
+
+    </body>
+</html>
