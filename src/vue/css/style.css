@@ -1,16 +1,16 @@
 html
 {
-	cursor: url("icon/ble.png"), auto;
+	cursor: url("../../../statique/ble.png"), auto;
 }
 
 a, .click, .sous_titre
 {
-	cursor: url("icon/pointer.png") 10 10, auto;
+	cursor: url("../../statique/pointer.png") 10 10, auto;
 }
 
 body
 {
-	background-image: url("icon/farm.jpeg");
+	background-image: url("../../../statique/farm.jpeg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: 100% 100%;
@@ -23,7 +23,7 @@ body
 header ul, footer
 {
 	display: flex;
-	
+
 	background-color: #2ecc71;
 	box-shadow: 5px 5px 10px #2c3e50;
 	padding: 0.2%;
@@ -182,7 +182,7 @@ header
 	padding: 0.2%;
 	padding-left: 1%;
 	opacity: 0.8;
-	border-radius: 25px; 
+	border-radius: 25px;
 }
 
 .sous_titre
