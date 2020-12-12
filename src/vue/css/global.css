@@ -1,0 +1,57 @@
+main {
+  background-color: #f2ce82;
+  opacity: 0.85;
+  min-height: 70vh;
+}
+
+html {
+	cursor: url("../../../statique/ble.png"), auto;
+}
+
+a {
+	cursor: url("../../statique/pointer.png") 10 10, auto;
+}
+
+#logo-epiflex {
+  position: absolute;
+  top: 5%;
+  left: 2%;
+  width: 15%;
+}
+
+body
+{
+	background-image: url("../../../statique/farm.jpeg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+	font-family: "Liberation Serif", Arial;
+}
+
+/*
+li a
+{
+	text-decoration:none;
+	color:white;
+}*/
+
+h1
+{
+	text-align: center;
+	font-size: 600% !important;
+	color:#ecf0f1;
+	font-variant: small-caps;
+	font-family: "Andalus", Arial;
+	margin-bottom: 0 !important;
+	margin-top: 0 !important;
+	text-shadow: 5px 5px 10px #2c3e50;
+}
+
+h2
+{
+	text-align: center;
+	color: #ecf0f1;
+	font-style: italic;
+	margin-top: 0 !important;
+	text-shadow: 5px 5px 10px #2c3e50;
+}
