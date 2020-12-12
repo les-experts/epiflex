@@ -1,8 +1,11 @@
-JBOSS_HOME=wildfly
+. ./project.config
+
+#jboss_home dans project.config
 BACK_PATH=src/back
 WEB_INF_PATH=WEB-INF
 VUE_PATH=src/vue
 STATIQUE_PATH=statique
+
 
 CLASSPATH=./src:$JBOSS_HOME/modules/system/layers/base/javax/servlet/api/main/jboss-servlet-api_4.0_spec-1.0.0.Final.jar
 #jboss-servlet-api_3.1_spec-1.0.0.Final.jar
