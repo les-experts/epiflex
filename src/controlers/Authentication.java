@@ -11,7 +11,12 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class Authentication extends HttpServlet {
+public class Authentication extends ControlerServlet {
+
+	protected String getLink(){
+		return "login/index.jsp";
+	}
+
 	@Override
 	public void doPost(HttpServletRequest requete, HttpServletResponse reponse){
 	    String username = requete.getParameter("username");
@@ -19,7 +24,7 @@ public class Authentication extends HttpServlet {
 			if(!verifString(username) || !verifString(password)){
 				this.view(requete,reponse);
 			}
-	    UserMapper mapper = UserMapper.get();
+	    UserMapper mapper = UserMapper.getInstance();
 			try{
 	    	User user = mapper.authentification(username, this.wordToMD5(password));
 			}
@@ -28,10 +33,7 @@ public class Authentication extends HttpServlet {
 			}
 				this.view(requete,reponse);
 	}
-	public void doGet(HttpServletRequest requete, HttpServletResponse reponse){
-		this.view(requete,reponse);
-	}
-
+	
 	private String wordToMD5(String password) throws NoSuchAlgorithmException {
 		MessageDigest m = MessageDigest.getInstance("MD5");
 		m.reset();
@@ -50,12 +52,4 @@ public class Authentication extends HttpServlet {
 		return true;
 	}
 
-	private void view(HttpServletRequest requete, HttpServletResponse reponse){
-		try{
-			(requete.getRequestDispatcher("src/vue/html_jsp/login/index.jsp")).forward(requete ,reponse);
-		}
-		catch(Exception e){
-			System.out.println(e.getMessage());
-		}
-	}
 }

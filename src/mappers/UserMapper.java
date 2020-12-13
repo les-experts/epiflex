@@ -19,14 +19,13 @@ public class UserMapper {
 		catch(SQLException e){e.printStackTrace();}
 	}
 
-	public static UserMapper getInstance() throws SQLException {
+	public static UserMapper getInstance() {
 		try{
 			if (instance == null) {
 					instance = new UserMapper();
 			}
 			return instance;
-		}
-		catch(SQLException e){
+		}catch(SQLException e){
 			e.printStackTrace();
 			return null;
 		}
@@ -53,15 +52,15 @@ public class UserMapper {
 
 	}
 
-	public static void main(String[] args) {
-		try{
-			UserMapper usrMap = UserMapper.getInstance();
-			User usr = usrMap.authentification("Zaneriis","130f9805895c3045eb2c854c119e84c3");
-			System.out.println(usr.getId() + " " + usr.getPseudo() + " " + usr.getRole());
-			usr = usrMap.authentification("Zaneris","130f9805895c3045eb2c854c119e84c3");
-			System.out.println(usr.getId() + " " + usr.getPseudo() + " " + usr.getRole());
-		}
-		catch(SQLException e){e.printStackTrace();}
-
-	}
+	// public static void main(String[] args) {
+	// 	try{
+	// 		UserMapper usrMap = UserMapper.getInstance();
+	// 		User usr = usrMap.authentification("Zaneriis","130f9805895c3045eb2c854c119e84c3");
+	// 		System.out.println(usr.getId() + " " + usr.getPseudo() + " " + usr.getRole());
+	// 		usr = usrMap.authentification("Zaneris","130f9805895c3045eb2c854c119e84c3");
+	// 		System.out.println(usr.getId() + " " + usr.getPseudo() + " " + usr.getRole());
+	// 	}
+	// 	catch(SQLException e){e.printStackTrace();}
+	//
+	// }
 }
