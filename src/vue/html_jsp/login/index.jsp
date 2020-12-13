@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <jsp:include page="head.html" />
+    <%-- <jsp:include page="head.html" /> --%>
     <title>Epi'flex</title>
   </head>
 
   <body class="container">
 
-      <jsp:include page="epiflex_epiceries.html" />
-      <jsp:include page="header.jsp" />
+      <%-- <jsp:include page="epiflex_epiceries.html" />
+      <jsp:include page="header.jsp" /> --%>
 
       <main>
       	<form method="POST" action="/Authentication">
@@ -21,7 +21,7 @@
       	</from>
       </main>
 
-      <jsp:include page="footer.jsp" />
+      <%-- <jsp:include page="footer.jsp" /> --%>
 
   </body>
 <html>

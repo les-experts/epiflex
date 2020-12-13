@@ -1,10 +1,12 @@
-package models;
+package mappers;
+
+import models.User;
 
 public class UserMapper {
 	static UserMapper object = null;
-	
+
 	private UserMapper() {
-		
+
 	}
 
 	public static UserMapper get() {
@@ -13,7 +15,7 @@ public class UserMapper {
 		}
 		return UserMapper.object;
 	}
-	
+
 	public User authentification(String username, String password_md5) {
 		return null;
 	}

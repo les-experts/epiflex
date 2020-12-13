@@ -4,10 +4,10 @@
 <web-app>
   <servlet>
     <servlet-name>Authentication</servlet-name>
-    <servlet-class>Authentication<servlet-class>
+    <servlet-class>controlers.Authentication</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Authentication</servlet-name>
-    <servlet-class>/Authentication<servlet-class>
+    <url-pattern>/Authentication</url-pattern>
   </servlet-mapping>
 </web-app>
