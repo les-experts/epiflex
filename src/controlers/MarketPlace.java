@@ -17,4 +17,11 @@ public class MarketPlace extends ControlerServlet {
 		return LinkCss;
 	}
 
+	@Override
+	protected ArrayList<String> getJS(){
+		ArrayList<String> srcJS = new ArrayList<String>();
+		srcJS.add("marketplace.js");
+		return srcJS;
+	}
+
 }
