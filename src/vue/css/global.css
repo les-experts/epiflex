@@ -21,11 +21,10 @@ a {
 
 body
 {
-	background-image: url("../../../statique/farm.jpeg");
+	/*background-image: url("../../../statique/farm.jpeg")*/;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: 100% 100%;
-	font-family: "Liberation Serif", Arial;
 }
 
 /*
