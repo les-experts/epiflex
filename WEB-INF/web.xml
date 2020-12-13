@@ -18,4 +18,12 @@
     <servlet-name>MarketPlace</servlet-name>
     <url-pattern>/MarketPlace</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>ProductDetails</servlet-name>
+    <servlet-class>controlers.ProductDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductDetails</servlet-name>
+    <url-pattern>/ProductDetails</url-pattern>
+  </servlet-mapping>
 </web-app>
