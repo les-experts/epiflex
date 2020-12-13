@@ -17,6 +17,7 @@ public abstract class ControlerServlet extends HttpServlet {
 		try{
 				requete.setAttribute("link", this.getLink());
 				requete.setAttribute("csslink", this.getCSS());
+				requete.setAttribute("srcjs", this.getJS());
 			(requete.getRequestDispatcher("src/vue/html_jsp/index.jsp")).forward(requete ,reponse);
 		}
 		catch(Exception e){
@@ -26,8 +27,13 @@ public abstract class ControlerServlet extends HttpServlet {
 
 	protected ArrayList<String> getCSS(){
 		ArrayList<String> LinkCss = new ArrayList<String>();
-
 		return LinkCss;
 	}
+
+	protected ArrayList<String> getJS(){
+		ArrayList<String> srcJS = new ArrayList<String>();
+		return srcJS;
+	}
+
 	protected abstract String getLink();
 }

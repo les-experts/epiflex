@@ -7,11 +7,16 @@ $(document).ready(function(){
     max: 950,
     values : [ 0, 950],
     slide: function( event, ui ) {
-      $("#prix_min").val( ui.values[ 0 ] + "€");
-      $("#prix_max").val( ui.values[ 1 ] + "€");
+      $("#prix_min").text( ui.values[ 0 ] + "€");
+      $("#prix_max").text( ui.values[ 1 ] + "€");
+      $("input[name='prix_min']").val( ui.values[ 0 ]);
+      $("input[name='prix_max']").val( ui.values[ 1 ]);
     }
   });
 
-  //$("#prix_min").val( $("#slider-prix").slider("value", 0) + "€");
-  //$("#prix_max").val( $("#slider-prix").slider( "value", 1 ) + "€");
+  $("#prix_min").text( $("#slider-prix").slider("values", 0) + "€");
+  $("#prix_max").text( $("#slider-prix").slider( "values", 1 ) + "€");
+
+  $("input[name='prix_min']").val( $("#slider-prix").slider("values", 0));
+  $("input[name='prix_max']").val( $("#slider-prix").slider( "values", 1 ));
 });

@@ -6,8 +6,8 @@
     <jsp:include page="template/link.html" />
     <%
 
-      ArrayList<String> list = (ArrayList<String>) request.getAttribute("csslink");
-      for (String val : list) {
+      ArrayList<String> listCss = (ArrayList<String>) request.getAttribute("csslink");
+      for (String val : listCss) {
         %>
         <link href="src/vue/css/<%=val%>" rel="stylesheet">
         <%
@@ -36,6 +36,14 @@
 
   </body>
 
-  <!--mettre le js ici après le reste pour que la page s'affiche avant #astuce-->
+  <%
+
+    ArrayList<String> listJS = (ArrayList<String>) request.getAttribute("srcjs");
+    for (String val : listJS) {
+      %>
+      <script src="src/vue/js/<%=val%>"></script>
+      <%
+    }
+  %>
 
 <html>
