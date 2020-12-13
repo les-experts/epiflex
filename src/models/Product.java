@@ -8,9 +8,10 @@ public class Product implements Serializable {
   private String title;
   private String picture;
   private float price;
+  private String description;
   private static SimpleDateFormat formatter = new SimpleDateFormat( " E d MMM yyyy ,H : m : s " , Locale.FRANCE ) ;
-  private Date date = new Date () ;
-  private int idUser;
+  private Date date;
+  private User user;
   private Category category;
 
   public Product() {}
@@ -31,11 +32,19 @@ public class Product implements Serializable {
 
   public void setPrice(float price) { this.price=price; }
 
+  public String getDescription() { return this.description; }
+
+  public void setDescription(String description) { this.description=description; }
+
   public String getDate() { return formatter.format(date); }
 
-  public int getIdUser() { return this.idUser; }
+  public void setDate(Date date) {
+      this.date = date;
+  }
 
-  public void setIdUser(int idUser) { this.idUser=idUser; }
+  public User getUser() { return this.user; }
+
+  public void setUser(User idUser) { this.user=user; }
 
   public Category getCategory() { return this.category; }
 
