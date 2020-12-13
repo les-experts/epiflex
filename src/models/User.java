@@ -12,7 +12,15 @@ public class User implements Serializable {
   private String address;
   private String pseudo;
 
-  public User() {}
+  public User(int id, String role, String lastname, String firstname, String email, String address, String pseudo) {
+    this.id=id;
+    this.role=role;
+    this.lastname=lastname;
+    this.firstname=firstname;
+    this.email=email;
+    this.address=address;
+    this.pseudo=pseudo;
+  }
 
   public int getId() { return this.id; }
 
