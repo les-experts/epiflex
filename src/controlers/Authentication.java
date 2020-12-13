@@ -19,44 +19,53 @@ public class Authentication extends ControlerServlet {
 
 
 	@Override
+	public void doGet(HttpServletRequest requete, HttpServletResponse reponse){
+		UserMapper usrMap = UserMapper.getInstance();
+		User usr = usrMap.authentification("Zaneriis","130f9805895c3045eb2c854c119e84c3");
+		System.out.println(usr.getId() + " " + usr.getPseudo() + " " + usr.getRole());
+	}
+	@Override
 	public void doPost(HttpServletRequest requete, HttpServletResponse reponse){
-	    String username = requete.getParameter("username");
-	    String password = requete.getParameter("password");
-
-			User user = loadUser(requete);
-			if(user != null){
-				try{
-					(requete.getRequestDispatcher("src/vue/html_jsp/Connecter.html")).forward(requete ,reponse);
-				}
-				catch(Exception e){
-					e.printStackTrace();
-					return;
-				}
-			}
-
-			if(!verifString(username) || !verifString(password)){
-				this.view(requete,reponse);
-			}
-	    UserMapper mapper = UserMapper.getInstance();
-			try{
-	    	user = mapper.authentification(username, this.wordToMD5(password));
-
-				if(user == null){
-					this.view(requete,reponse);
-				}
-				HttpSession session = requete.getSession();
-				session.setAttribute("user",user.getPseudo());
-				try{
-					(requete.getRequestDispatcher("src/vue/html_jsp/Connecter.html")).forward(requete ,reponse);
-				}
-				catch(Exception e){
-					e.printStackTrace();
-					return;
-				}
-			}
-			catch(Exception e){
-				this.view(requete,reponse);
-			}
+	    // String username = requete.getParameter("username");
+	    // String password = requete.getParameter("password");
+			//
+			// User user = loadUser(requete);
+			// if(user != null){
+			// 	try{
+			// 		(requete.getRequestDispatcher("src/vue/html_jsp/Connecter.html")).forward(requete ,reponse);
+			// 	}
+			// 	catch(Exception e){
+			// 		e.printStackTrace();
+			// 		return;
+			// 	}
+			// }
+			//
+			// if(!verifString(username) || !verifString(password)){
+			// 	this.view(requete,reponse);
+			// }
+	    // UserMapper mapper = UserMapper.getInstance();
+			// try{
+	    // 	user = mapper.authentification(username, this.wordToMD5(password));
+			//
+			// 	if(user == null){
+			// 		this.view(requete,reponse);
+			// 	}
+			// 	HttpSession session = requete.getSession();
+			// 	session.setAttribute("user",user.getPseudo());
+			// 	try{
+			// 		(requete.getRequestDispatcher("src/vue/html_jsp/Connecter.html")).forward(requete ,reponse);
+			// 	}
+			// 	catch(Exception e){
+			// 		e.printStackTrace();
+			// 		return;
+			// 	}
+			// }
+			// catch(Exception e){
+			// 	this.view(requete,reponse);
+			// }
+			UserMapper usrMap = UserMapper.getInstance();
+			User usr = usrMap.authentification("Zaneriis","130f9805895c3045eb2c854c119e84c3");
+			System.out.println(usr.getId() + " " + usr.getPseudo() + " " + usr.getRole());
 	}
 
 	private User loadUser(HttpServletRequest requete){
@@ -83,4 +92,11 @@ public class Authentication extends ControlerServlet {
 		return true;
 	}
 
+
+	public static void main(String[] args) {
+			UserMapper usrMap = UserMapper.getInstance();
+			User usr = usrMap.authentification("Zaneriis","130f9805895c3045eb2c854c119e84c3");
+			System.out.println(usr.getId() + " " + usr.getPseudo() + " " + usr.getRole());
+
+	}
 }
