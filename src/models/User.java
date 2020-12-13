@@ -5,14 +5,16 @@ import java.util.*;
 
 public class User implements Serializable {
   private int id;
-  private String role;
+  private Role role;
   private String lastname;
   private String firstname;
   private String email;
   private String address;
   private String pseudo;
 
-  public User(int id, String role, String lastname, String firstname, String email, String address, String pseudo) {
+  public User() { }
+
+  public User(int id, Role role, String lastname, String firstname, String email, String address, String pseudo) {
     this.id=id;
     this.role=role;
     this.lastname=lastname;
@@ -26,9 +28,9 @@ public class User implements Serializable {
 
   public void setId(int id) { this.id=id; }
 
-  public String getRole() { return this.role; }
+  public Role getRole() { return this.role; }
 
-  public void setRole(String role) { this.role=role; }
+  public void setRole(Role role) { this.role=role; }
 
   public String getLastname() { return this.lastname; }
 

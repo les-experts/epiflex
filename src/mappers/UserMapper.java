@@ -32,14 +32,15 @@ public class UserMapper {
 	}
 
 	public User authentification(String username, String password_md5) {
-		String req = "SELECT USR_id, ROL_label, USR_lastname, USR_firstname, USR_email, USR_address, USR_pseudo FROM User JOIN Role ON User.ROL_id=Role.ROL_id WHERE USR_pseudo = ? AND USR_password = ?;";
+		String req = "SELECT USR_id, ROL_id, USR_lastname, USR_firstname, USR_email, USR_address, USR_pseudo FROM User WHERE USR_pseudo = ? AND USR_password = ?;";
 		try{
 			PreparedStatement ps = this.conn.prepareStatement(req);
 			ps.setString(1,username);
 			ps.setString(2,password_md5);
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()){
-				User user = new User(rs.getInt("USR_id"), rs.getString("ROL_label"), rs.getString("USR_lastname"),rs.getString("USR_firstname"),rs.getString("USR_email"),rs.getString("USR_address"),rs.getString("USR_pseudo"));
+				RoleMapper rolmap = RoleMapper.getInstance();
+				User user = new User(rs.getInt("USR_id"), rolmap.roleById(rs.getInt("ROL_id")), rs.getString("USR_lastname"),rs.getString("USR_firstname"),rs.getString("USR_email"),rs.getString("USR_address"),rs.getString("USR_pseudo"));
 				return user;
 			}
 			else
@@ -50,6 +51,36 @@ public class UserMapper {
 			return null;
 		}
 
+	}
+
+	public User userById(int id) {
+		String req = "SELECT USR_id, ROL_id, USR_lastname, USR_firstname, USR_email, USR_address, USR_pseudo FROM user WHERE USR_id = ?;";
+		//je fais epxres de pas prendre le mdp dans la requête pck ça sert à rien + faille de sécurité ??
+		try{
+			PreparedStatement ps = this.conn.prepareStatement(req);
+			ps.setInt(1,id);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()){
+				User usr = new User();
+				usr.setId(rs.getInt("USR_id"));
+
+				RoleMapper rolmap = RoleMapper.getInstance();
+				usr.setRole(rolmap.roleById(rs.getInt("ROL_id")));
+
+				usr.setLastname(rs.getString("USR_lastname"));
+				usr.setFirstname(rs.getString("USR_firstname"));
+				usr.setEmail(rs.getString("USR_email"));
+				usr.setAddress(rs.getString("USR_address"));
+				usr.setPseudo(rs.getString("USR_pseudo"));
+				return usr;
+			}
+			else
+				return null;
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	// public static void main(String[] args) {
