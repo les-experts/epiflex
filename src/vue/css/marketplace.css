@@ -1,3 +1,49 @@
 #row-recherche {
   padding-top: 25px;
+  border-bottom: solid #3d8c40;
+  border-left: solid #3d8c40;
+  border-right: solid #3d8c40;
+  background: #95e699;
+}
+
+#col-recherche {
+  height: 100%;
+}
+
+.hidden-input {
+  display: none;
+}
+
+::placeholder {
+  color : grey;
+  opacity: 1;
+}
+
+#button-rechercher {
+  margin-top: 30px;
+}
+
+.ui-slider-range {
+  background-color : #307033;
+}
+
+.ui-slider {
+  background-color : #61c265;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default {
+  background: #1f4429;
+  border: none !important;
+}
+
+.ui-state-hover, .ui-widget-content .ui-state-hover {
+  background: #245426;
+}
+
+.ui-state-hover, .ui-widget-content .ui-state-hover {
+  background: #183819;
+}
+
+label[for="mots_cles"] {
+  color : grey;
 }
