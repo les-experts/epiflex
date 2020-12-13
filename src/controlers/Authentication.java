@@ -17,21 +17,51 @@ public class Authentication extends ControlerServlet {
 		return "login/index.jsp";
 	}
 
+
 	@Override
 	public void doPost(HttpServletRequest requete, HttpServletResponse reponse){
 	    String username = requete.getParameter("username");
 	    String password = requete.getParameter("password");
+
+			User user = loadUser(requete);
+			if(user != null){
+				try{
+					(requete.getRequestDispatcher("src/vue/html_jsp/Connecter.html")).forward(requete ,reponse);
+				}
+				catch(Exception e){
+					e.printStackTrace();
+					return;
+				}
+			}
+
 			if(!verifString(username) || !verifString(password)){
 				this.view(requete,reponse);
 			}
 	    UserMapper mapper = UserMapper.getInstance();
 			try{
-	    	User user = mapper.authentification(username, this.wordToMD5(password));
+	    	user = mapper.authentification(username, this.wordToMD5(password));
+
+				if(user == null){
+					this.view(requete,reponse);
+				}
+				HttpSession session = requete.getSession();
+				session.setAttribute("user",user.getPseudo());
+				try{
+					(requete.getRequestDispatcher("src/vue/html_jsp/Connecter.html")).forward(requete ,reponse);
+				}
+				catch(Exception e){
+					e.printStackTrace();
+					return;
+				}
 			}
 			catch(Exception e){
-				System.out.println(e.getMessage());
+				this.view(requete,reponse);
 			}
-			this.view(requete,reponse);
+	}
+
+	private User loadUser(HttpServletRequest requete){
+		HttpSession session = requete.getSession();
+		return (User) session.getAttribute("user");
 	}
 
 	private String wordToMD5(String password) throws NoSuchAlgorithmException {
@@ -45,6 +75,7 @@ public class Authentication extends ControlerServlet {
 		while(hashtext.length() < 32 ){
 		  hashtext = "0"+hashtext;
 		}
+		System.out.println(password+" into "+hashtext);
 		return hashtext;
 	}
 
