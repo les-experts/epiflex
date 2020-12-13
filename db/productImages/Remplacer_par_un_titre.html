@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://localhost:8080/epiflex/MarketPlace# -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+
+<link rel="stylesheet" type="text/css" href="./Remplacer_par_un_titre_files/global.css">
+<link rel="stylesheet" type="text/css" href="./Remplacer_par_un_titre_files/nav.css">
+
+<link rel="stylesheet" href="./Remplacer_par_un_titre_files/jquery-ui.min.css">
+
+<link rel="stylesheet" href="./Remplacer_par_un_titre_files/materialize.min.css">
+
+<link href="./Remplacer_par_un_titre_files/icon" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="http://localhost:8080/epiflex/statique/pig2.png">
+
+
+<script src="./Remplacer_par_un_titre_files/jquery.min.js"></script>
+
+<script src="./Remplacer_par_un_titre_files/materialize.min.js"></script>
+
+<script src="./Remplacer_par_un_titre_files/jquery-ui.min.js"></script>
+
+<script src="./Remplacer_par_un_titre_files/nav.js"></script>
+
+    
+        <link href="./Remplacer_par_un_titre_files/marketplace.css" rel="stylesheet">
+        
+    <title>Remplacer_par_un_titre</title>
+  </head>
+
+  <body class="container">
+
+      <div>
+    <img id="logo-epiflex" src="./Remplacer_par_un_titre_files/Logo.svg">
+    <div>
+        <h1>Epi'Flex</h1>
+        <h2>La collectivité d'épiceries qui s'adapte à l'économie</h2>
+   </div>
+</div>
+
+
+      
+<header>
+  <nav>
+    <div class="green nav-wrapper">
+      <a href="http://localhost:8080/epiflex/MarketPlace" class="brand-logo center">Marketplace</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="http://localhost:8080/epiflex/MarketPlace#">Mes produits</a></li>
+        <li><a href="http://localhost:8080/epiflex/MarketPlace#"><i class="material-icons">shopping_cart</i></a></li>
+        <li><a href="http://localhost:8080/epiflex/MarketPlace#"><i class="material-icons">email</i></a></li>
+        <li><a class="waves-effect waves-light modal-trigger" href="http://localhost:8080/epiflex/MarketPlace#modal-profil"><i class="material-icons right" data-toggle="modal" data-target="#myModal">face</i>Alexis</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<form method="POST" action="http://localhost:8080/Authentication" id="modal-profil" class="modal" tabindex="0">
+    <div class="modal-content">
+      <div class="row center-align">
+        <h4>Connexion à Epi'Flex</h4>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">face</i>
+          <input name="username" id="pseudo" type="text" class="validate">
+          <label for="pseudo">Nom d'utilisateur</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">lock_outline</i>
+          <input name="password" id="password" type="password" class="validate">
+          <label for="password">Mot de passe</label>
+        </div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn waves-effect waves-light" type="submit" name="action">Se connecter
+        <i class="material-icons right">send</i>
+      </button>
+      <a type="button" class="btn btn-flat waves-effect modal-close">Annuler</a>
+    </div>
+</form>
+
+
+
+
+      <main>
+        <!--Mettre le html là dedans
+        Faites des trucs beaux en utilisant les grilles de materialize svp
+        https://materializecss.com/grid.html-->
+
+          
+            
+            
+
+<form action="http://localhost:8080/epiflex/MarketPlace#" method="GET" id="row-recherche" class="row">
+
+  <div class="col-recherche col s6">
+    <div class="row">
+      <div class="col s12">
+        <div class="input-field">
+          <input name="mots_cles" id="mots_cles" type="text" class="validate">
+          <label for="mots_cles">Mots-clés : AOP, Picardie, Manioc, ...</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <div class="row center-align">
+          <span> Intervalle de prix </span>
+        </div>
+        <div class="row valign-wrapper">
+          <div class="col s2">
+            <span id="prix_min">0€</span>
+            <input type="number" readonly="" class="hidden-input" name="prix_min">
+          </div>
+          <div class="col s8">
+            <div id="slider-prix" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"><div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0%; width: 100%;"></div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 0%;"></span><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default" style="left: 100%;"></span></div>
+          </div>
+          <div class="col s2">
+            <span id="prix_max">950€</span>
+            <input type="number" readonly="" class="hidden-input" name="prix_max">
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="col-recherche col s6">
+    <div class="row">
+      <div id="input-field-select-categorie" class="input-field">
+        <div class="select-wrapper"><input class="select-dropdown dropdown-trigger" type="text" readonly="true" data-target="select-options-f94e4d42-2795-7d1a-d9e3-37f76476ea00"><ul id="select-options-f94e4d42-2795-7d1a-d9e3-37f76476ea00" class="dropdown-content select-dropdown" tabindex="0"><li class="disabled" id="select-options-f94e4d42-2795-7d1a-d9e3-37f76476ea000" tabindex="0"><span>Choisir une catégorie</span></li><li id="select-options-f94e4d42-2795-7d1a-d9e3-37f76476ea001" tabindex="0" class="selected"><span>Toutes les catégories</span></li><li id="select-options-f94e4d42-2795-7d1a-d9e3-37f76476ea002" tabindex="0"><span>Viennoiseries</span></li><li id="select-options-f94e4d42-2795-7d1a-d9e3-37f76476ea003" tabindex="0"><span>Fruits &amp; Légumes</span></li><li id="select-options-f94e4d42-2795-7d1a-d9e3-37f76476ea004" tabindex="0"><span>Produits Laitiers</span></li><li id="select-options-f94e4d42-2795-7d1a-d9e3-37f76476ea005" tabindex="0"><span>Drogues éco-responsables</span></li></ul><svg class="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><select id="select-categorie" name="categorie" tabindex="-1">
+          <option value="" disabled="">Choisir une catégorie</option>
+          <option value="0" selected="">Toutes les catégories</option>
+          <option value="1">Viennoiseries</option>
+          <option value="2">Fruits &amp; Légumes</option>
+          <option value="3">Produits Laitiers</option>
+          <option value="4">Drogues éco-responsables</option>
+        </select></div>
+      </div>
+    </div>
+    <div class="row center-align">
+      <button id="button-rechercher" class="btn green waves-effect waves-light" type="submit" name="action">Rechercher
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </div>
+</form>
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="./Remplacer_par_un_titre_files/products.css">
+
+
+  <div class="row" id="row-products">
+
+      
+
+      <div class="col s3">
+
+        <div class="card small">
+
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="./Remplacer_par_un_titre_files/1.jpg">
+          </div>
+
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Pain au chocolat<i class="material-icons right">more_vert</i></span>
+            <p><a href="http://localhost:8080/epiflex/MarketPlace#">En savoir plus</a></p>
+          </div>
+
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Pain au chocolat<i class="material-icons right">close</i></span>
+            <p>Donec rutrum venenatis nisi, ac condimentum libero ultricies in. Integer a nisl id erat rhoncus mattis in et velit. Sed eget magna  congue, consequat justo eget, finibus felis. estibulum feugiat massa quis nisi ornare interdum.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="col s3">
+
+        <div class="card small">
+
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="./Remplacer_par_un_titre_files/2.jpg">
+          </div>
+
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">La bonne patate<i class="material-icons right">more_vert</i></span>
+            <p><a href="http://localhost:8080/epiflex/MarketPlace#">En savoir plus</a></p>
+          </div>
+
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">La bonne patate<i class="material-icons right">close</i></span>
+            <p>Donec rutrum venenatis nisi, ac condimentum libero ultricies in. Integer a nisl id erat rhoncus mattis in et velit. Sed eget magna  congue, consequat justo eget, finibus felis. estibulum feugiat massa quis nisi ornare interdum.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="col s3">
+
+        <div class="card small">
+
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="./Remplacer_par_un_titre_files/3.jpg">
+          </div>
+
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Beurre de bannanier<i class="material-icons right">more_vert</i></span>
+            <p><a href="http://localhost:8080/epiflex/MarketPlace#">En savoir plus</a></p>
+          </div>
+
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Beurre de bannanier<i class="material-icons right">close</i></span>
+            <p>Morbi eleifend vulputate rhoncus. Nulla sodales at nisl ac suscipit. Nam viverra sit amet orci eu laoreet. Quisque in aliquam enim. Donec fringilla consequat arcu ac elementum. Fusce tristique ultrices nisl, at rutrum lacus vestibulum vitae. Pellentesque pulvinar est sit amet purus tempor, nec semper nulla gravida. Aliquam pulvinar sapien vitae est imperdiet, sit amet tempor leo vestibulum. Ut at erat ac massa bibendum rutrum. Fusce varius quis risus ut iaculis. Suspendisse cursus, arcu id pretium mollis, magna est euismod dui, tristique ornare mauris augue pharetra dui. Fusce congue sagittis tortor ut commodo. Morbi eleifend vulputate rhoncus. Nulla sodales at nisl ac suscipit. Nam viverra sit amet orci eu laoreet. Quisque in aliquam enim. Donec fringilla consequat arcu ac elementum. Fusce tristique ultrices nisl, at rutrum lacus vestibulum vitae. Pellentesque pulvinar est sit amet purus tempor, nec semper nulla gravida. Aliquam pulvinar sapien vitae est imperdiet, sit amet tempor leo vestibulum. Ut at erat ac massa bibendum rutrum. Fusce varius quis risus ut iaculis. Suspendisse cursus, arcu id pretium mollis, magna est euismod dui, tristique ornare mauris augue pharetra dui. Fusce congue sagittis tortor ut commodo. Morbi eleifend vulputate rhoncus. Nulla sodales at nisl ac suscipit. Nam viverra sit amet orci eu laoreet. Quisque in aliquam enim. Donec fringilla consequat arcu ac elementum. Fusce tristique ultrices nisl, at rutrum lacus vestibulum vitae. Pellentesque pulvinar est sit amet purus tempor, nec semper nulla gravida. Aliquam pulvinar sapien vitae est imperdiet, sit amet tempor leo vestibulum. Ut at erat ac massa bibendum rutrum. Fusce varius quis risus ut iaculis. Suspendisse cursus, arcu id pretium mollis, magna est euismod dui, tristique ornare mauris augue pharetra dui. Fusce congue sagittis tortor ut commodo. </p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="col s3">
+
+        <div class="card small">
+
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="./Remplacer_par_un_titre_files/4.jpg">
+          </div>
+
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Pack de carotte Orange !<i class="material-icons right">more_vert</i></span>
+            <p><a href="http://localhost:8080/epiflex/MarketPlace#">En savoir plus</a></p>
+          </div>
+
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Pack de carotte Orange !<i class="material-icons right">close</i></span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pharetra fringilla turpis ac sodales. Morbi et luctus nisl, eleifend dictum ex. Vivamus sit amet enim magna. Ut molestie aliquet velit, eget egestas nunc volutpat molestie. In tincidunt nec nulla vel fermentum. Nunc sit amet ipsum vitae enim bibendum condimentum. Suspendisse potenti. Ut maximus efficitur aliquet. Morbi eget augue at quam consequat pharetra sed vel est. Vestibulum at tellus eget tellus egestas tincidunt. Duis interdum risus id ex rhoncus, nec tristique nisi vulputate. Ut in enim a lacus maximus tincidunt et id mauris. Donec rutrum venenatis nisi, ac condimentum libero ultricies in. Integer a nisl id erat rhoncus mattis in et velit. Sed eget magna congue, consequat justo eget, finibus felis. Vestibulum feugiat massa quis nisi ornare interdum. Quisque ex ligula, mollis id iaculis id, feugiat sed nibh. Maecenas at sapien  ondimentum, suscipit felis eleifend, fringilla purus. Nam et velit neque. In vel volutpat massa, non aliquet massa. Morbi eu eros ex. Cras convallis risus quis eros semper maximus. Vivamus ornare interdum tortor ut hendrerit. Nunc sed mattis sem. Aenean a purus sapien. Vivamus molestie consequat nibh, pharetra volutpat justo malesuada nec. Aliquam consequat, risus ac placerat bibendum, sapien arcu pretium libero, id aliquet urna est eu magna. Nullam turpis mauris, sollicitudin ac tempor non, elementum eu ipsum. Donec ac feugiat tellus. Cras vitae erat ante. Ut ligula urna, finibus eget vehicula in, facilisis id purus.unc mauris metus, condimentum vitae mauris a, vulputate ultricies elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut mi ipsum, finibus in vehicula ac, volutpat nec quam. Pellentesque a dolor volutpat, rutrum risus ac, dictum tellus. Quisque sit amet sem eget quam fringilla ultrices non in justo. Morbi dapibus ullamcorper tristique. Aenean tortor augue, mattis eu turpis ac, cursus blandit lacus. Donec rutrum et justo sed sagittis. Nullam non porta turpis, non auctor justo. Quisque lacinia odio id mi pellentesque tempus. Integer purus ipsum, fermentum sed euismod elementum, cursus vel libero. Etiam eget sagittis felis, ut ornare elit. Pellentesque tempus tristique elit, a mattis diam pretium in. Morbi eleifend vulputate rhoncus. Nulla sodales at nisl ac suscipit. Nam viverra sit amet orci eu laoreet. Quisque in aliquam enim. Donec fringilla consequat arcu ac elementum. Fusce tristique ultrices nisl, at rutrum lacus vestibulum vitae. Pellentesque pulvinar est sit amet purus tempor, nec semper nulla gravida. Aliquam pulvinar sapien vitae est imperdiet, sit amet tempor leo vestibulum. Ut at erat ac massa bibendum rutrum. Fusce varius quis risus ut iaculis. Suspendisse cursus, arcu id pretium mollis, magna est euismod dui, tristique ornare mauris augue pharetra dui. Fusce congue sagittis tortor ut commodo. </p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="col s3">
+
+        <div class="card small">
+
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="./Remplacer_par_un_titre_files/5.jpg">
+          </div>
+
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">La baguette tradition<i class="material-icons right">more_vert</i></span>
+            <p><a href="http://localhost:8080/epiflex/MarketPlace#">En savoir plus</a></p>
+          </div>
+
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">La baguette tradition<i class="material-icons right">close</i></span>
+            <p></p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="col s3">
+
+        <div class="card small">
+
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="./Remplacer_par_un_titre_files/6.jpg">
+          </div>
+
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Yaourt<i class="material-icons right">more_vert</i></span>
+            <p><a href="http://localhost:8080/epiflex/MarketPlace#">En savoir plus</a></p>
+          </div>
+
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Yaourt<i class="material-icons right">close</i></span>
+            <p>Vivamus ornare interdum tortor ut hendrerit. Nunc sed mattis sem. Aenean a purus sapien. Vivamus molestie consequat nibh, pharetra volutpat justo malesuada nec. Aliquam consequat, risus ac placerat bibendum,  sapien arcu pretium libero, id aliquet urna est eu magna. Nullam turpis mauris, sollicitudin ac tempor non, elementum eu ipsum. Donec ac feugiat tellus. Cras vitae erat ante. Ut ligula urna, finibus eget vehicula in, facilisis id purus.Nunc mauris metus, condimentum vitae mauris a, vulputate ultricies elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut mi ipsum, finibus in vehicula ac, volutpat nec quam. Pellentesque a dolor volutpat, rutrum risus ac, dictum tellus. Quisque sit amet sem eget quam fringilla ultrices non in justo. Morbi dapibus ullamcorper tristique. Aenean tortor augue, mattis eu turpis ac, cursus blandit lacus. Donec rutrum et justo sed sagittis. Nullam non porta turpis, non auctor justo. Quisque lacinia odio id mi pellentesque tempus. Integer purus ipsum, fermentum sed euismod elementum, cursus vel libero. Etiam eget sagittis felis, ut ornare elit. Pellentesque tempus tristique elit, a mattis diam pretium in.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="col s3">
+
+        <div class="card small">
+
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="./Remplacer_par_un_titre_files/7.jpg">
+          </div>
+
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Croissant<i class="material-icons right">more_vert</i></span>
+            <p><a href="http://localhost:8080/epiflex/MarketPlace#">En savoir plus</a></p>
+          </div>
+
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Croissant<i class="material-icons right">close</i></span>
+            <p>VivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamusVivamus</p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="col s3">
+
+        <div class="card small">
+
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="./Remplacer_par_un_titre_files/8.jpg">
+          </div>
+
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Brique de lait<i class="material-icons right">more_vert</i></span>
+            <p><a href="http://localhost:8080/epiflex/MarketPlace#">En savoir plus</a></p>
+          </div>
+
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Brique de lait<i class="material-icons right">close</i></span>
+            <p> Nunc mauris metus, condimentum vitae mauris a, vulputate ultricies elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut mi ipsum, finibus in vehicula ac, volutpat nec quam. Pellentesque a dolor volutpat, rutrum risus ac, dictum tellus. Quisque sit amet sem eget quam fringilla ultrices non in justo. Morbi dapibus ullamcorper tristique. Aenean tortor augue, mattis eu turpis ac, cursus blandit lacus. Donec rutrum et justo sed sagittis. Nullam non porta turpis, non auctor justo. Quisque lacinia odio id mi pellentesque tempus. Integer purus ipsum, fermentum sed euismod elementum, cursus vel libero. Etiam eget sagittis felis, ut ornare elit. Pellentesque tempus tristique elit, a mattis diam pretium in. Morbi eleifend vulputate rhoncus. Nulla sodales at nisl ac suscipit. Nam viverra sit amet orci eu laoreet. Quisque in aliquam enim. Donec fringilla consequat arcu ac elementum. Fusce tristique ultrices nisl, at rutrum lacus vestibulum vitae. Pellentesque pulvinar est sit amet purus tempor, nec semper nulla gravida. Aliquam pulvinar sapien vitae est imperdiet, sit amet tempor leo vestibulum. Ut at erat ac massa bibendum rutrum. Fusce varius quis risus ut iaculis. Suspendisse cursus, arcu id pretium mollis, magna est euismod dui, tristique ornare mauris augue pharetra dui. Fusce congue sagittis tortor ut commodo. </p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="col s3">
+
+        <div class="card small">
+
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="./Remplacer_par_un_titre_files/9.jpg">
+          </div>
+
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">Méthamphétamine bleu 100% Local<i class="material-icons right">more_vert</i></span>
+            <p><a href="http://localhost:8080/epiflex/MarketPlace#">En savoir plus</a></p>
+          </div>
+
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Méthamphétamine bleu 100% Local<i class="material-icons right">close</i></span>
+            <p>ok</p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+  </div>
+
+
+
+
+      </main>
+
+      
+<footer class="green page-footer">
+  <div class="footer-copyright">
+    <div class="container">
+    © 2020 TW2 Alexis Melo da Silva, Léo Pacary, Alexandre Vigneron et dédicace à Valentin Bossard
+    <a class="grey-text text-lighten-4 right" href="https://github.com/les-experts/epiflex">Gitteub</a>
+    </div>
+  </div>
+</footer>
+
+
+  
+
+  
+      <script src="./Remplacer_par_un_titre_files/marketplace.js"></script>
+      
+
+
+</body></html>

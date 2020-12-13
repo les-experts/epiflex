@@ -39,7 +39,8 @@ public class ProductMapper {
   }
 
   public List<Product> allProducts() {
-    String req = "SELECT PRO_id, PRO_title, PRO_picture, PRO_description, USR_id, PRO_price, CAT_id, PRO_date FROM Product";
+    String req = "SELECT PRO_id, PRO_title, PRO_description, USR_id, PRO_price, CAT_id, PRO_date FROM Product";
+
     try{
       PreparedStatement ps = this.conn.prepareStatement(req);
       ResultSet rs = ps.executeQuery();
@@ -49,7 +50,7 @@ public class ProductMapper {
         Product product = new Product();
         product.setId(rs.getInt("PRO_id"));
         product.setTitle(rs.getString("PRO_title"));
-        product.setPicture(rs.getString("PRO_picture"));
+        //product.setPicture(rs.getString("PRO_picture"));
         product.setDescription(rs.getString("PRO_description"));
 
         UserMapper userMap = UserMapper.getInstance();
@@ -60,7 +61,7 @@ public class ProductMapper {
         CategoryMapper catMap = CategoryMapper.getInstance();
         product.setCategory(catMap.categoryById(rs.getInt("CAT_id")));
 
-        product.setDate(rs.getDate("PRO_date"));
+        //product.setDate(rs.getDate("PRO_date"));
         allProducts.add(product);
       }
       return allProducts;
