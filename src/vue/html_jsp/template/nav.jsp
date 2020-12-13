@@ -7,39 +7,40 @@
         <li><a href="#">Mes produits</a></li>
         <li><a href="#"><i class="material-icons">shopping_cart</i></a></li>
         <li><a href="#"><i class="material-icons">email</i></a></li>
-        <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="material-icons right" data-toggle="modal" data-target="#myModal">face</i>Alexis</a></li>
+        <li><a class="waves-effect waves-light modal-trigger" href="#modal-profil"><i class="material-icons right" data-toggle="modal" data-target="#myModal">face</i>Alexis</a></li>
       </ul>
     </div>
   </nav>
 </header>
 
-<div class="modal" id="myModal">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <!-- Modal Header -->
-         <form method="POST" action="/Authentication">
-           <div class="modal-header">
-              <h4 class="modal-title">Connexion</h4>
-           </div>
-           <!-- Modal body -->
-           <div class="modal-body">
-               <table>
-                 <tr>
-                    <td><label for="username">Nom d'utilisateur</label></td>
-                    <td><input id="username" type="text" name="username"></td>
-                 </tr>
-                 <tr>
-                   <td><label for="password">Mot de passe</label></td>
-                   <td><input id="password" type="password" name="password"></td>
-                 </tr>
-               </table>
-           </div>
-           <!-- Modal footer -->
-           <div class="modal-footer">
-               <input type="submit" class="btn btn-primary" value="envoyer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
-         </form>
+<form method="POST" action="/Authentication" id="modal-profil" class="modal">
+    <div class="modal-content">
+      <div class="row center-align">
+        <h4>Connexion à Epi'Flex</h4>
       </div>
-   </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">face</i>
+          <input name="username" id="pseudo" type="text" class="validate">
+          <label for="pseudo">Nom d'utilisateur</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">lock_outline</i>
+          <input name="password" id="password" type="password" class="validate">
+          <label for="password">Mot de passe</label>
+        </div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn waves-effect waves-light" type="submit" name="action">Se connecter
+        <i class="material-icons right">send</i>
+      </button>
+      <a type="button" class="btn btn-flat waves-effect modal-close">Annuler</a>
+    </div>
+</form>
+
 </div>
