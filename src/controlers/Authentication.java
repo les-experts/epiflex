@@ -31,9 +31,9 @@ public class Authentication extends ControlerServlet {
 			catch(Exception e){
 				System.out.println(e.getMessage());
 			}
-				this.view(requete,reponse);
+			this.view(requete,reponse);
 	}
-	
+
 	private String wordToMD5(String password) throws NoSuchAlgorithmException {
 		MessageDigest m = MessageDigest.getInstance("MD5");
 		m.reset();
