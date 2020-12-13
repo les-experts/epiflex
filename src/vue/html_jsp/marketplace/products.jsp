@@ -1,4 +1,17 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="models.Product"%>
+
 <link rel="stylesheet" type="text/css" href="src/vue/css/products.css">
+
+<%
+  ArrayList<Product> products = (ArrayList<Product>) request.getAttribute("products");
+  for (Product prod : products) {
+%>
+    <p><%=prod.getTitle()%></p>
+<%
+  }
+%>
 
 <div class="row" id="row-products">
   <div class="col s3">
