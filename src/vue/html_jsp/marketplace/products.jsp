@@ -6,8 +6,6 @@
 
 <%
   ArrayList<Product> products = (ArrayList<Product>) request.getAttribute("products");
-  System.out.println(products);
-
   if (products != null) {
 %>
   <div class="row" id="row-products">
