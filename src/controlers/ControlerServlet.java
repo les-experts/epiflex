@@ -5,10 +5,12 @@ import javax.servlet.http .*;
 import java.util.ArrayList;
 
 public abstract class ControlerServlet extends HttpServlet {
+
 	@Override
 	public void doPost(HttpServletRequest requete, HttpServletResponse reponse){
 	  this.view(requete,reponse);
 	}
+
 	public void doGet(HttpServletRequest requete, HttpServletResponse reponse){
 		this.view(requete,reponse);
 	}

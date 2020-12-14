@@ -9,7 +9,6 @@ DROP TABLE Comment;
 CREATE TABLE Product (
   PRO_id INTEGER PRIMARY KEY,
   PRO_title VARCHAR(30),
-  PRO_picture VARCHAR(50),
   PRO_description TEXT,
   USR_id,
   PRO_price FLOAT,

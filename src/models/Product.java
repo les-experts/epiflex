@@ -24,9 +24,9 @@ public class Product implements Serializable {
 
   public void setTitle(String title) { this.title=title; }
 
-  public String getPicture() { return this.picture; }
-
-  public void setPicture(String picture) { this.picture=picture; }
+  public String getPicturePath() {
+    return "db/productImages/"+this.id+".jpg"; 
+  }
 
   public float getPrice() { return this.price; }
 
