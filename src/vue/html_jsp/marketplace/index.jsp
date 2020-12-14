@@ -56,4 +56,4 @@
   </div>
 </form>
 
-<jsp:include page="products.jsp" />
+<jsp:include page="/ListProducts" flush="true"/>

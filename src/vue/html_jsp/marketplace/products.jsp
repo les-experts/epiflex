@@ -14,7 +14,7 @@
 
       <% for (Product prod : products) { %>
 
-      <div class="col s3">
+      <div class="col s6 m3">
 
         <div class="card small">
 

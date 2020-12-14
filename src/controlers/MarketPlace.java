@@ -14,29 +14,6 @@ public class MarketPlace extends ControlerServlet {
 		return "marketplace/index.jsp";
 	}
 
-	private void attributsCommunsPostGet(HttpServletRequest requete, HttpServletResponse reponse) {
-		ProductMapper pdtmap = ProductMapper.getInstance();
-
-		System.out.println("jessaie de chopper les ojets");
-		List<Product> products = pdtmap.allProducts();
-		System.out.println("ca fait ca");
-
-		requete.setAttribute("products", products);
-
-	}
-
-	@Override
-	public void doPost(HttpServletRequest requete, HttpServletResponse reponse){
-		this.attributsCommunsPostGet(requete, reponse);
-		this.view(requete,reponse);
-	}
-
-	@Override
-	public void doGet(HttpServletRequest requete, HttpServletResponse reponse) {
-		this.attributsCommunsPostGet(requete, reponse);
-		this.view(requete, reponse);
-	}
-
   @Override
   protected ArrayList<String> getCSS(){
 		ArrayList<String> LinkCss = new ArrayList<String>();

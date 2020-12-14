@@ -10,6 +10,7 @@
     <servlet-name>Authentication</servlet-name>
     <url-pattern>/Authentication</url-pattern>
   </servlet-mapping>
+
   <servlet>
     <servlet-name>MarketPlace</servlet-name>
     <servlet-class>controlers.MarketPlace</servlet-class>
@@ -18,6 +19,16 @@
     <servlet-name>MarketPlace</servlet-name>
     <url-pattern>/MarketPlace</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ListProducts</servlet-name>
+    <servlet-class>controlers.ListProducts</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListProducts</servlet-name>
+    <url-pattern>/ListProducts</url-pattern>
+  </servlet-mapping>
+
   <servlet>
     <servlet-name>ProductDetails</servlet-name>
     <servlet-class>controlers.ProductDetails</servlet-class>
