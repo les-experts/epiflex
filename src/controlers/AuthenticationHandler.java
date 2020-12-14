@@ -12,13 +12,19 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class AuthenticationHandler {
-  	public User loadUser(HttpServletRequest request){
-  		HttpSession session = request.getSession();
+    private HttpServletRequest request;
+
+    public AuthenticationHandler(HttpServletRequest request){
+      this.request = request;
+    }
+
+  	public User loadUser(){
+  		HttpSession session = this.request.getSession();
   		return (User) session.getAttribute("user");
   	}
 
-  	public boolean isConnected(HttpServletRequest request){
-  		return loadUser(request) != null;
+  	public boolean isConnected(){
+  		return this.loadUser() != null;
   	}
 
   	public String wordToMD5(String password) throws NoSuchAlgorithmException {

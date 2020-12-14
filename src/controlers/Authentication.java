@@ -27,8 +27,8 @@ public class Authentication extends ControlerServlet {
 
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse reponse){
-		AuthenticationHandler authHandler = new AuthenticationHandler();
-		if(authHandler.isConnected(request)){
+		AuthenticationHandler authHandler = new AuthenticationHandler(request);
+		if(authHandler.isConnected()){
 			this.setLink(linkIfConnected);
 			this.view(request,reponse);
 		}
@@ -43,7 +43,7 @@ public class Authentication extends ControlerServlet {
 	    String password = request.getParameter("password");
 
 			boolean validPOST = verifString(username) && verifString(password);
-			AuthenticationHandler authHandler = new AuthenticationHandler();
+			AuthenticationHandler authHandler = new AuthenticationHandler(request);
 
 			if(validPOST){
 		    UserMapper mapper = UserMapper.getInstance();
