@@ -13,27 +13,21 @@ import java.security.NoSuchAlgorithmException;
 
 public class Authentication extends ControlerServlet {
 
-	private String linkIfFailed = "login/index.jsp";
-	private String linkIfConnected = "login/Connecter.html";
-	private String linkView = linkIfFailed;
+	private String linkIfFailed = "login/Connecter.html";
+	private String linkIfConnected = "/MarketPlace";
 
 	protected String getLink(){
-		return this.linkView;
-	}
-
-	private void setLink(String link){
-		this.linkView = link;
+		return this.linkIfFailed;
 	}
 
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse reponse){
 		AuthenticationHandler authHandler = new AuthenticationHandler(request);
 		if(authHandler.isConnected()){
-			this.setLink(linkIfConnected);
-			this.view(request,reponse);
+			this.connectionPage(request,reponse);
 		}
 		else{
-			super.doGet(request,reponse);
+			this.failPage(request,reponse);
 		}
 	}
 
@@ -52,21 +46,37 @@ public class Authentication extends ControlerServlet {
 					if(user != null){
 						HttpSession session = request.getSession();
 						session.setAttribute("user",user);
-							this.setLink(linkIfConnected);
-							this.view(request,reponse);
+						this.connectionPage(request,reponse);
 					}
 					else{
-						this.view(request,reponse);
+						this.failPage(request,reponse);
 					}
 
 				}
 				catch(Exception e){
-					this.view(request,reponse);
+					this.failPage(request,reponse);
 				}
 			}
 			else{
-				this.view(request,reponse);
+				this.failPage(request,reponse);
 			}
+	}
+
+	private void connectionPage(HttpServletRequest request, HttpServletResponse reponse){
+		try{
+			(request.getRequestDispatcher(this.linkIfConnected)).forward(request ,reponse);
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+	private void failPage(HttpServletRequest request, HttpServletResponse reponse){
+		try{
+			(request.getRequestDispatcher(this.linkIfFailed)).forward(request ,reponse);
+		}
+		catch(Exception e){
+			System.out.println(e.getMessage());
+		}
 	}
 
 	private boolean verifString(String stringVarif){

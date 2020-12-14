@@ -16,7 +16,10 @@ public abstract class ControlerServlet extends HttpServlet {
 	}
 
 	protected void view(HttpServletRequest requete, HttpServletResponse reponse){
+		AuthenticationHandler handler = new AuthenticationHandler(requete);
 		try{
+				requete.setAttribute("isConnected", handler.isConnected());
+				requete.setAttribute("username", (handler.loadUser() == null)?"Visiteur":handler.loadUser().getPseudo());
 				requete.setAttribute("link", this.getLink());
 				requete.setAttribute("csslink", this.getCSS());
 				requete.setAttribute("srcjs", this.getJS());

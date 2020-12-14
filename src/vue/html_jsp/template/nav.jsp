@@ -1,4 +1,8 @@
 <%@ page contentType="text/plain; charset=UTF-8" %>
+<%
+      boolean isConnected = (boolean) request.getAttribute("isConnected");
+      String username = (String) request.getAttribute("username");
+%>
 <header>
   <nav>
     <div class="green nav-wrapper">
@@ -6,14 +10,18 @@
       <ul class="right hide-on-med-and-down">
         <li><a href="#">Mes produits</a></li>
         <li><a href="#"><i class="material-icons">shopping_cart</i></a></li>
+        <% if(isConnected){%>
         <li><a href="#"><i class="material-icons">email</i></a></li>
-        <li><a class="waves-effect waves-light modal-trigger" href="#modal-profil"><i class="material-icons right" data-toggle="modal" data-target="#myModal">face</i>Alexis</a></li>
+        <li><a class="waves-effect waves-light"><i class="material-icons right" data-toggle="modal" data-target="#myModal">face</i><%=username%></a></li>
+        <%}else{%>
+        <li><a class="waves-effect waves-light modal-trigger" href="#modal-profil">S'authentifier</a></li>
+        <%}%>
       </ul>
     </div>
   </nav>
 </header>
 
-<form method="POST" action="/Authentication" id="modal-profil" class="modal">
+<form method="POST" action="Authentication" id="modal-profil" class="modal">
     <div class="modal-content">
       <div class="row center-align">
         <h4>Connexion à Epi'Flex</h4>
