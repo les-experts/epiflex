@@ -14,33 +14,33 @@ import java.security.NoSuchAlgorithmException;
 public class Authentication extends ControlerServlet {
 
 	private String linkIfFailed = "login/index.jsp";
-	private String linkIfConnected = "src/vue/html_jsp/login/Connecter.html";
+	private String linkIfConnected = "login/Connecter.html";
+	private String linkView = linkIfFailed;
 
 	protected String getLink(){
-		return this.linkIfFailed;
+		return this.linkView;
+	}
+
+	private void setLink(String link){
+		this.linkView = link;
 	}
 
 	@Override
-	public void doGet(HttpServletRequest requete, HttpServletResponse reponse){
+	public void doGet(HttpServletRequest request, HttpServletResponse reponse){
 		AuthenticationHandler authHandler = new AuthenticationHandler();
-		if(authHandler.isConnected(requete)){
-			try{
-				(requete.getRequestDispatcher(linkIfConnected)).forward(requete ,reponse);
-			}
-			catch(Exception e){
-				e.printStackTrace();
-				return;
-			}
+		if(authHandler.isConnected(request)){
+			this.setLink(linkIfConnected);
+			this.view(request,reponse);
 		}
 		else{
-			super.doGet(requete,reponse);
+			super.doGet(request,reponse);
 		}
 	}
 
 	@Override
-	public void doPost(HttpServletRequest requete, HttpServletResponse reponse){
-	    String username = requete.getParameter("username");
-	    String password = requete.getParameter("password");
+	public void doPost(HttpServletRequest request, HttpServletResponse reponse){
+	    String username = request.getParameter("username");
+	    String password = request.getParameter("password");
 
 			boolean validPOST = verifString(username) && verifString(password);
 			AuthenticationHandler authHandler = new AuthenticationHandler();
@@ -50,39 +50,22 @@ public class Authentication extends ControlerServlet {
 				try{
 		    	User user = mapper.authentification(username, authHandler.wordToMD5(password));
 					if(user != null){
-						HttpSession session = requete.getSession();
+						HttpSession session = request.getSession();
 						session.setAttribute("user",user);
-						try{
-							(requete.getRequestDispatcher(linkIfConnected)).forward(requete ,reponse);
-						}
-						catch(Exception e){
-							e.printStackTrace();
-							return;
-						}
+							this.setLink(linkIfConnected);
+							this.view(request,reponse);
 					}
 					else{
-						try{
-							(requete.getRequestDispatcher(linkIfConnected)).forward(requete ,reponse);
-						}
-						catch(Exception e){
-							e.printStackTrace();
-							return;
-						}
+						this.view(request,reponse);
 					}
 
 				}
 				catch(Exception e){
-					this.view(requete,reponse);
+					this.view(request,reponse);
 				}
 			}
 			else{
-				try{
-					(requete.getRequestDispatcher(linkIfConnected)).forward(requete ,reponse);
-				}
-				catch(Exception e){
-					e.printStackTrace();
-					return;
-				}
+				this.view(request,reponse);
 			}
 	}
 
