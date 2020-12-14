@@ -32,7 +32,6 @@ public class AuthenticationHandler {
   		while(hashtext.length() < 32 ){
   			hashtext = "0"+hashtext;
   		}
-  		System.out.println(password+" into "+hashtext);
   		return hashtext;
   	}
 }
