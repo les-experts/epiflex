@@ -45,5 +45,6 @@
       <%
     }
   %>
+  <jsp:include page="cochon/index.html" />
 
 <html>
