@@ -2,10 +2,12 @@
 <%@ page import="java.util.List"%>
 <%@ page import="models.Comment"%>
 <section class="commentHistory">
-<%
-List<Comment> listComment = (List<Comment>) request.getAttribute("listComment");
-for (Comment val : listComment) {
-  %>
+  <%
+  boolean isConnected = (boolean) request.getAttribute("isConnected");
+  String username = (String) request.getAttribute("username");
+  List<Comment> listComment = (List<Comment>) request.getAttribute("listComment");
+  for (Comment val : listComment) {
+    %>
     <article>
       <header>
         <span class="author"><%=val.getPseudo()%></span>
@@ -27,10 +29,12 @@ for (Comment val : listComment) {
     </article>
   <%
 }
+if(isConnected){
 %>
   <div class="container form_comment">
     <h2>Donne ton avis sur ce produit !</h2>
-    <form method="POST" action="epiflex/Comment">
+    <form method="POST" action="Comment">
+      <input name="idProduct" type="hidden" value="5">
       <div class="form_ranking">
         <img src="statique/etoile-full.png" class="form_ranking_star" data="1">
         <img src="statique/etoile-full.png" class="form_ranking_star" data="2">
@@ -42,7 +46,7 @@ for (Comment val : listComment) {
       <div class="input-field col s6">
         <i class="material-icons prefix">mode_edit</i>
         <textarea id="icon_prefix2" name="comment" class="materialize-textarea"></textarea>
-        <label for="icon_prefix2">Zaneriis</label>
+        <label for="icon_prefix2"><%=username%></label>
       </div>
       <div class="form_ranking_btn">
         <button class="btn waves-effect waves-light" type="submit" name="action">Envoyer
@@ -51,4 +55,5 @@ for (Comment val : listComment) {
       </div>
     </form>
   </div>
+  <%}%>
 </section>

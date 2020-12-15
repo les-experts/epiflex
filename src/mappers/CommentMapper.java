@@ -61,6 +61,38 @@ public class CommentMapper {
 		}
   }
 
+  public int maxID(){
+    String req = "SELECT max(COM_id) as nb from COMMENT";
+    try{
+      ResultSet rs = this.conn.createStatement().executeQuery(req);
+      rs.next();
+      return rs.getInt("nb");
+    }
+    catch(SQLException e){
+      e.printStackTrace();
+      return 0;
+    }
+  }
+
+  public void insert(int PRO_id, int USR_id, int COM_rating, String COM_content){
+    int idcomm = this.maxID()+1;
+    String req = "INSERT INTO Comment(COM_id,USR_id,COM_rating,COM_content,COM_date,PRO_id) VALUES(?,?,?,?,date('now'),?)";
+    System.out.println("INSERT INTO Comment(COM_id,USR_id,COM_rating,COM_content,COM_date,PRO_id) VALUES("+idcomm+","+USR_id+","+COM_rating+","+COM_content+",date('now'),"+PRO_id+")");
+    try{
+      PreparedStatement ps = this.conn.prepareStatement(req);
+			ps.setInt(1,idcomm);
+			ps.setInt(2,USR_id);
+			ps.setInt(3,COM_rating);
+			ps.setString(4,COM_content);
+			ps.setInt(5,PRO_id);
+			ps.executeUpdate();
+    }
+		catch(SQLException e){
+			e.printStackTrace();
+			return;
+		}
+  }
+
   public static void main(String[] args){
   CommentMapper mapper = CommentMapper.getInstance();
   List<Comment> comm = mapper.getCommentByProduct(5);
