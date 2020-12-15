@@ -4,7 +4,7 @@
   <div class="col s6">
       <img class="img-responsive materialboxed" src="https://www.carrefour.fr/media/540x540/Photosite/PGC/P.L.S./3245414192508_PHOTOSITE_20180529_163246_0.jpg?placeholder=1" alt="Image" />
   </div>
-  <div class="col s6">
+  <div class="col s6 productDetails">
     <div class="row center-align">
       <h1>Lait</h1>
       <div class="col s6">
@@ -14,7 +14,7 @@
         <h2>190€</h2>
       </div>
     </div>
-    <div class="row productDetails">
+    <div class="row">
       <div class="col s12">
         <div class="card-panel teal">
           <span class="white-text">I am a very simple card. I am good at containing small bits of information.
@@ -35,15 +35,3 @@
 </div>
 <div id="commentSection" class="container">
 </div>
-
-<script>
-$.ajax({
-  dataType: "html",
-  type : 'GET',
-  url: "/epiflex/Comment",
-  data: "id=5",
-  success: function(html_content,status){
-    $("#commentSection").html(html_content);
-  }
-});
-</script>

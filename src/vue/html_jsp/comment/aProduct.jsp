@@ -28,4 +28,27 @@ for (Comment val : listComment) {
   <%
 }
 %>
+  <div class="container form_comment">
+    <h2>Donne ton avis sur ce produit !</h2>
+    <form method="POST" action="epiflex/Comment">
+      <div class="form_ranking">
+        <img src="statique/etoile-full.png" class="form_ranking_star" data="1">
+        <img src="statique/etoile-full.png" class="form_ranking_star" data="2">
+        <img src="statique/etoile-full.png" class="form_ranking_star" data="3">
+        <img src="statique/etoile-full.png" class="form_ranking_star" data="4">
+        <img src="statique/etoile-full.png" class="form_ranking_star" data="5">
+        <input id="input_rank" name="rank" type="hidden" value="5">
+      </div>
+      <div class="input-field col s6">
+        <i class="material-icons prefix">mode_edit</i>
+        <textarea id="icon_prefix2" name="comment" class="materialize-textarea"></textarea>
+        <label for="icon_prefix2">Zaneriis</label>
+      </div>
+      <div class="form_ranking_btn">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Envoyer
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    </form>
+  </div>
 </section>

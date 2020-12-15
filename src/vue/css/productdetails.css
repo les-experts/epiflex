@@ -23,37 +23,6 @@ h2
 }
 
 .productDetails{
-	min-height: 500px;
-}
-
-#commentSection{
-	background-color: #eadab9;
-	opacity: 0.92;
-	border: 1px solid #f9dea7;
-	min-width: 500px;
-	border-radius: 15px;
+	min-height: 500px!important;
 	margin-bottom: 30px;
-}
-.commentHistory header{
-	border: 1px solid #f9dea7;
-	border-radius: 5px 5px 0 0;
-	width: 100%;
-	padding-left: 5px;
-}
-.commentHistory article{
-	margin: 5px;
-	margin-top: 5px;
-}
-.commentHistory aside{
-	width: 100%;
-	padding: 7px 30px;
-	border: 1px solid #f9dea7;
-	border-radius: 0 0 5px 5px;
-	text-align: justify;
-}
-main{
-	padding-bottom:15px;
-}
-.etoile{
-	max-width: 20px;
 }
