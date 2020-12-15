@@ -19,7 +19,7 @@
     <servlet-name>MarketPlace</servlet-name>
     <url-pattern>/MarketPlace</url-pattern>
   </servlet-mapping>
-  
+
   <servlet>
     <servlet-name>ListProducts</servlet-name>
     <servlet-class>controlers.ListProducts</servlet-class>
@@ -35,6 +35,6 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ProductDetails</servlet-name>
-    <url-pattern>/ProductDetails</url-pattern>
+    <url-pattern>/Products/*</url-pattern>
   </servlet-mapping>
 </web-app>

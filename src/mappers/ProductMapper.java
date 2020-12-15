@@ -39,7 +39,7 @@ public class ProductMapper {
   }
 
   public List<Product> allProducts() {
-    String req = "SELECT PRO_id, PRO_title, PRO_description, USR_id, PRO_price, CAT_id, PRO_date FROM Product";
+    String req = "SELECT PRO_id, PRO_title, PRO_description, USR_id, PRO_price, CAT_id, PRO_date FROM Product;";
 
     try{
       PreparedStatement ps = this.conn.prepareStatement(req);
@@ -70,5 +70,37 @@ public class ProductMapper {
       e.printStackTrace();
       return null;
     }
+  }
+
+  public Product productById(int idPro) {
+    String req = "SELECT PRO_id, PRO_title, PRO_description, USR_id, PRO_price, CAT_id, PRO_date FROM Product WHERE PRO_id = ?;";
+    try{
+      PreparedStatement ps = this.conn.prepareStatement(req);
+      ps.setInt(1,idPro);
+      ResultSet rs = ps.executeQuery();
+      if(rs.next()){
+        Product pro = new Product();
+        pro.setId(rs.getInt("PRO_id"));
+        pro.setTitle(rs.getString("PRO_title"));
+        //product.setPicture(rs.getString("PRO_picture"));
+        pro.setDescription(rs.getString("PRO_description"));
+
+        UserMapper userMap = UserMapper.getInstance();
+        pro.setUser(userMap.userById(rs.getInt("USR_id"))); //!!!!!!!!!
+
+        pro.setPrice(rs.getFloat("PRO_price"));
+
+        CategoryMapper catMap = CategoryMapper.getInstance();
+        pro.setCategory(catMap.categoryById(rs.getInt("CAT_id")));
+        return pro;
+      }
+      else
+        return null;
+    }
+    catch(SQLException e){
+      e.printStackTrace();
+      return null;
+    }
+
   }
 }
