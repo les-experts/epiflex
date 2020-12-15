@@ -11,6 +11,7 @@ public abstract class ControlerServlet extends HttpServlet {
 	  this.view(requete,reponse);
 	}
 
+	@Override
 	public void doGet(HttpServletRequest requete, HttpServletResponse reponse){
 		this.view(requete,reponse);
 	}

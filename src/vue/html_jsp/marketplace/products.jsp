@@ -6,15 +6,13 @@
 
 <%
   ArrayList<Product> products = (ArrayList<Product>) request.getAttribute("products");
-  System.out.println(products);
-
   if (products != null) {
 %>
   <div class="row" id="row-products">
 
       <% for (Product prod : products) { %>
 
-      <div class="col s3">
+      <div class="col s6 m3">
 
         <div class="card small">
 

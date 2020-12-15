@@ -6,6 +6,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CategoryMapper {
 
   private static CategoryMapper instance;
@@ -52,4 +55,26 @@ public class CategoryMapper {
 		}
 
 	}
+
+  public List<Category> allCategories() {
+    String req = "SELECT CAT_id, CAT_label FROM Category;";
+
+    try{
+      PreparedStatement ps = this.conn.prepareStatement(req);
+      ResultSet rs = ps.executeQuery();
+      List<Category> allCategories = new ArrayList<Category>();
+
+      while(rs.next()){
+        Category category = new Category();
+        category.setId(rs.getInt("CAT_id"));
+        category.setLabel(rs.getString("CAT_label"));
+        allCategories.add(category);
+      }
+      return allCategories;
+    }
+    catch(SQLException e){
+      e.printStackTrace();
+      return null;
+    }
+  }
 }

@@ -21,4 +21,4 @@ javac -cp $CLASSPATH -sourcepath src -d $WEB_INF_PATH/classes $CONTROLERS_PATH/*
 jar cf epiflex.war $WEB_INF_PATH $VUE_PATH $STATIQUE_PATH $DB_PATH
 cp epiflex.war $JBOSS_HOME/standalone/deployments
 
-echo -e "\n\e]8;;http://localhost:8080/epiflex/Marketplace\aACCEDER AU SITE (CTRL+LCLICK)\e]8;;\a\n"
+echo -e "\n\e]8;;http://localhost:8080/epiflex/MarketPlace\aACCEDER AU SITE (CTRL+LCLICK)\e]8;;\a\n"

@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="models.Category"%>
 
 <form action="#" method="GET" id="row-recherche" class="row">
 
@@ -41,10 +43,15 @@
         <select id="select-categorie" name="categorie">
           <option value="" disabled>Choisir une catégorie</option>
           <option value="0" selected>Toutes les catégories</option>
-          <option value="1">Viennoiseries</option>
-          <option value="2">Fruits & Légumes</option>
-          <option value="3">Produits Laitiers</option>
-          <option value="4">Drogues éco-responsables</option>
+          <%
+          ArrayList<Category> categories = (ArrayList<Category>) request.getAttribute("categories");
+          if (categories != null) {
+            for (Category cat : categories) {
+          %>
+
+          <option value="<%=cat.getId()%>"><%=cat.getLabel()%></option>
+
+          <% }} %>
         </select>
       </div>
     </div>
@@ -56,4 +63,4 @@
   </div>
 </form>
 
-<jsp:include page="products.jsp" />
+<jsp:include page="/ListProducts" flush="true"/>

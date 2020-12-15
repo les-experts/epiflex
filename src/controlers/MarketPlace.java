@@ -4,9 +4,9 @@ import javax.servlet .*;
 import javax.servlet.http .*;
 import java.util.ArrayList;
 import java.util.List;
-import models.Product;
+import models.Category;
 
-import mappers.ProductMapper;
+import mappers.CategoryMapper;
 
 public class MarketPlace extends ControlerServlet {
 
@@ -14,27 +14,24 @@ public class MarketPlace extends ControlerServlet {
 		return "marketplace/index.jsp";
 	}
 
-	private void attributsCommunsPostGet(HttpServletRequest requete, HttpServletResponse reponse) {
-		ProductMapper pdtmap = ProductMapper.getInstance();
-
-		System.out.println("jessaie de chopper les ojets");
-		List<Product> products = pdtmap.allProducts();
-		System.out.println("ca fait ca");
-
-		requete.setAttribute("products", products);
-
-	}
-
 	@Override
 	public void doPost(HttpServletRequest requete, HttpServletResponse reponse){
-		this.attributsCommunsPostGet(requete, reponse);
+		this.commonPostGetAttributes(requete, reponse );
 		this.view(requete,reponse);
 	}
 
 	@Override
-	public void doGet(HttpServletRequest requete, HttpServletResponse reponse) {
-		this.attributsCommunsPostGet(requete, reponse);
-		this.view(requete, reponse);
+	public void doGet(HttpServletRequest requete, HttpServletResponse reponse){
+		this.commonPostGetAttributes(requete, reponse );
+		this.view(requete,reponse);
+	}
+
+	private void commonPostGetAttributes(HttpServletRequest requete, HttpServletResponse reponse) {
+		CategoryMapper catmap = CategoryMapper.getInstance();
+
+		List<Category> categories = catmap.allCategories();
+
+		requete.setAttribute("categories", categories);
 	}
 
   @Override
