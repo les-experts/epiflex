@@ -14,7 +14,7 @@
         <h2>190€</h2>
       </div>
     </div>
-    <div class="row">
+    <div class="row productDetails">
       <div class="col s12">
         <div class="card-panel teal">
           <span class="white-text">I am a very simple card. I am good at containing small bits of information.
@@ -31,4 +31,19 @@
         <a type="button" class="btn btn-flat  red lighten-1 ">Contacter le vendeur</a>
       </div>
     </div>
+  </div>
 </div>
+<div id="commentSection" class="container">
+</div>
+
+<script>
+$.ajax({
+  dataType: "html",
+  type : 'GET',
+  url: "/epiflex/Comment",
+  data: "id=5",
+  success: function(html_content,status){
+    $("#commentSection").html(html_content);
+  }
+});
+</script>
