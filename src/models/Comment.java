@@ -8,6 +8,8 @@ public class Comment implements Serializable {
   private String pseudo;
   private int rating;
   private String text;
+  private static SimpleDateFormat formatter = new SimpleDateFormat( " E d MMM yyyy ,H : m : s " , Locale.FRANCE ) ;
+  private Date date;
 
   public Comment() {}
 
@@ -26,5 +28,11 @@ public class Comment implements Serializable {
   public int getRating() { return this.rating; }
 
   public void setRating(int rating) { this.rating=rating; }
+
+  public String getDate() { return formatter.format(date); }
+
+  public void setDate(Date date) {
+      this.date = date;
+  }
 
 }
