@@ -83,6 +83,26 @@ public class UserMapper {
 		}
 	}
 
+	public void updateUser(User user){
+		String req = "UPDATE User SET USR_pseudo = ?, USR_firstname = ?, USR_lastname = ?, USR_email = ?, USR_address = ? WHERE USR_id = ?";
+		try{
+			PreparedStatement ps = this.conn.prepareStatement(req);
+			ps.setString(1,user.getPseudo());
+			ps.setString(2,user.getFirstname());
+			ps.setString(3,user.getLastname());
+			ps.setString(4,user.getEmail());
+			ps.setString(5,user.getAddress());
+			ps.setInt(6,user.getId());
+			ps.executeUpdate();
+			System.out.println("coucou");
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
+
+
+
 	public static void main(String[] args) {
 			UserMapper usrMap = UserMapper.getInstance();
 			User usr = usrMap.authentification("Zaneriis","130f9805895c3045eb2c854c119e84c3");

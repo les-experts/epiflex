@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public abstract class ControlerServlet extends HttpServlet {
 
 	@Override
-	public void doPost(HttpServletRequest requete, HttpServletResponse reponse){
+	public void doPost(HttpServletRequest requete, HttpServletResponse reponse) {
 	  this.view(requete,reponse);
 	}
 
