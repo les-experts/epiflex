@@ -1,6 +1,5 @@
 main {
-  background-color: #f2ce82;
-  opacity: 0.85;
+  background-color: rgba(242, 206, 130,0.85);
   min-height: 70vh;
 }
 

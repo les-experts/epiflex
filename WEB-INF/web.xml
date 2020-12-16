@@ -15,6 +15,10 @@
     <servlet-name>MarketPlace</servlet-name>
     <servlet-class>controlers.MarketPlace</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>Comment</servlet-name>
+    <servlet-class>controlers.CommentServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>MarketPlace</servlet-name>
     <url-pattern>/MarketPlace</url-pattern>
@@ -35,6 +39,10 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ProductDetails</servlet-name>
-    <url-pattern>/Products/*</url-pattern>
+    <url-pattern>/ProductDetails</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Comment</servlet-name>
+    <url-pattern>/Comment</url-pattern>
   </servlet-mapping>
 </web-app>

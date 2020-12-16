@@ -4,7 +4,7 @@
   <div class="col s6">
       <img class="img-responsive materialboxed" src="https://www.carrefour.fr/media/540x540/Photosite/PGC/P.L.S./3245414192508_PHOTOSITE_20180529_163246_0.jpg?placeholder=1" alt="Image" />
   </div>
-  <div class="col s6">
+  <div class="col s6 productDetails">
     <div class="row center-align">
       <h1>Lait</h1>
       <div class="col s6">
@@ -31,4 +31,7 @@
         <a type="button" class="btn btn-flat  red lighten-1 ">Contacter le vendeur</a>
       </div>
     </div>
+  </div>
+</div>
+<div id="commentSection" class="container">
 </div>

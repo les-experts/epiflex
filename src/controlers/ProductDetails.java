@@ -14,7 +14,7 @@ public class ProductDetails extends ControlerServlet {
 	protected String getLink(){
 		return "productdetails/index.jsp";
 	}
-
+	/*
 	private void commonPostGetAttributes(HttpServletRequest requete, HttpServletResponse reponse) {
 		ProductMapper pdtmap = ProductMapper.getInstance();
 		//faut changer ca bg https://stackoverflow.com/questions/8715474/servlet-and-path-parameters-like-xyz-value-test-how-to-map-in-web-xml
@@ -44,12 +44,13 @@ public class ProductDetails extends ControlerServlet {
 
 		//tout s'est bien passé si product != null
 		requete.setAttribute("product", product);
-	}
+	}*/
 
   @Override
   protected ArrayList<String> getCSS(){
 		ArrayList<String> LinkCss = new ArrayList<String>();
     LinkCss.add("productdetails.css");
+    LinkCss.add("comment.css");
 		return LinkCss;
 	}
 
@@ -57,9 +58,11 @@ public class ProductDetails extends ControlerServlet {
 	protected ArrayList<String> getJS(){
 		ArrayList<String> srcJS = new ArrayList<String>();
 		srcJS.add("productdetails.js");
+		srcJS.add("comment.js");
 		return srcJS;
 	}
 
+	/*
 	@Override
 	public void doPost(HttpServletRequest requete, HttpServletResponse reponse){
 		this.commonPostGetAttributes(requete, reponse);
@@ -101,5 +104,5 @@ public class ProductDetails extends ControlerServlet {
 			System.out.println(e);
 		}
 
-	}
+	}*/
 }
