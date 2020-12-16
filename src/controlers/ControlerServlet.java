@@ -24,7 +24,7 @@ public abstract class ControlerServlet extends HttpServlet {
 				requete.setAttribute("link", this.getLink());
 				requete.setAttribute("csslink", this.getCSS());
 				requete.setAttribute("srcjs", this.getJS());
-			(requete.getRequestDispatcher("src/vue/html_jsp/index.jsp")).forward(requete ,reponse);
+			(requete.getRequestDispatcher("/src/vue/html_jsp/index.jsp")).forward(requete ,reponse);
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());

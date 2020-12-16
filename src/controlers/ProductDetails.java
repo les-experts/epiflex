@@ -14,6 +14,23 @@ public class ProductDetails extends ControlerServlet {
 	protected String getLink(){
 		return "productdetails/index.jsp";
 	}
+
+  @Override
+  protected ArrayList<String> getCSS(){
+		ArrayList<String> LinkCss = new ArrayList<String>();
+		LinkCss.add("productdetails.css");
+    LinkCss.add("comment.css");
+		return LinkCss;
+	}
+
+	@Override
+	protected ArrayList<String> getJS(){
+		ArrayList<String> srcJS = new ArrayList<String>();
+		srcJS.add("productdetails.js");
+		srcJS.add("comment.js");
+		return srcJS;
+	}
+
 	/*
 	private void commonPostGetAttributes(HttpServletRequest requete, HttpServletResponse reponse) {
 		ProductMapper pdtmap = ProductMapper.getInstance();
@@ -45,22 +62,6 @@ public class ProductDetails extends ControlerServlet {
 		//tout s'est bien passé si product != null
 		requete.setAttribute("product", product);
 	}*/
-
-  @Override
-  protected ArrayList<String> getCSS(){
-		ArrayList<String> LinkCss = new ArrayList<String>();
-    LinkCss.add("productdetails.css");
-    LinkCss.add("comment.css");
-		return LinkCss;
-	}
-
-	@Override
-	protected ArrayList<String> getJS(){
-		ArrayList<String> srcJS = new ArrayList<String>();
-		srcJS.add("productdetails.js");
-		srcJS.add("comment.js");
-		return srcJS;
-	}
 
 	/*
 	@Override
