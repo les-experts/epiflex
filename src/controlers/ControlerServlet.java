@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public abstract class ControlerServlet extends HttpServlet {
 
 	@Override
-	public void doPost(HttpServletRequest requete, HttpServletResponse reponse){
+	public void doPost(HttpServletRequest requete, HttpServletResponse reponse) {
 	  this.view(requete,reponse);
 	}
 
@@ -24,7 +24,7 @@ public abstract class ControlerServlet extends HttpServlet {
 				requete.setAttribute("link", this.getLink());
 				requete.setAttribute("csslink", this.getCSS());
 				requete.setAttribute("srcjs", this.getJS());
-			(requete.getRequestDispatcher("src/vue/html_jsp/index.jsp")).forward(requete ,reponse);
+			(requete.getRequestDispatcher("/src/vue/html_jsp/index.jsp")).forward(requete ,reponse);
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());
