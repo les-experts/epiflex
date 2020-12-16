@@ -10,29 +10,19 @@
 %>
   <div class="row" id="row-products">
 
-      <% for (Product prod : products) {
-
-          int maxLength = 15;
-
-          String title = prod.getTitle();
-          int endSubstr = Math.min(maxLength, title.length());
-          String endString = "";
-          if (endSubstr == maxLength) {
-            endString = "...";
-          }
-         %>
+      <% for (Product prod : products) { %>
 
       <div class="col s6 m3">
 
-        <div class="card hoverable small">
+        <div class="card small">
 
           <div class="card-image waves-effect waves-block waves-light">
             <img class="activator" src="<%=prod.getPicturePath()%>">
           </div>
 
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4"><%=title.substring(0,endSubstr) + endString %><i class="material-icons right">more_vert</i></span>
-            <p><a href="/epiflex/Product">En savoir plus</a></p>
+            <span class="card-title activator grey-text text-darken-4"><%=prod.getTitle()%><i class="material-icons right">more_vert</i></span>
+            <p><a href="#">En savoir plus</a></p>
           </div>
 
           <div class="card-reveal">

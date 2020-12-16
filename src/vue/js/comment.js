@@ -1,4 +1,4 @@
-/*$.ajax({
+$.ajax({
   dataType: "html",
   type : 'GET',
   url: "/epiflex/Comment",
@@ -23,4 +23,3 @@ function start_onclick(){
     }
   );
 }
-*/

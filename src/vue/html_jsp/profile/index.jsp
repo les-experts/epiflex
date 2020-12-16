@@ -15,8 +15,8 @@
   <div class="row">
     <div class="input-field col s12 m8 offset-m2">
       <i class="material-icons prefix">account_circle</i>
-      <input name="pseudo" id="pseudoprofile" type="text" class="validate" value="<%= user.getPseudo() %>">
-      <label for="pseudoprofile">Pseudo</label>
+      <input name="pseudo" id="pseudo" type="text" class="validate" value="<%= user.getPseudo() %>">
+      <label for="pseudo">Pseudo</label>
     </div>
   </div>
   <div class="row">

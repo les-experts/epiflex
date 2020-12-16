@@ -12,4 +12,18 @@ public class Profile extends ControlerServlet {
 		return "profile/index.jsp";
 	}
 
+  @Override
+  protected ArrayList<String> getCSS(){
+		ArrayList<String> LinkCss = new ArrayList<String>();
+    LinkCss.add("profile.css");
+		return LinkCss;
+	}
+
+	@Override
+	protected ArrayList<String> getJS(){
+		ArrayList<String> srcJS = new ArrayList<String>();
+		return srcJS;
+	}
+
+
 }
