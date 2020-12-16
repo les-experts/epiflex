@@ -45,4 +45,23 @@
     <servlet-name>Comment</servlet-name>
     <url-pattern>/Comment</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Profile</servlet-name>
+    <servlet-class>controlers.Profile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Profile</servlet-name>
+    <url-pattern>/Profile</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>FormModification</servlet-name>
+    <servlet-class>controlers.FormModification</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FormModification</servlet-name>
+    <url-pattern>/toto</url-pattern>
+  </servlet-mapping>
+
 </web-app>

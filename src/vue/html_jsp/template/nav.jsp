@@ -12,7 +12,7 @@
         <li><a href="#"><i class="material-icons">shopping_cart</i></a></li>
         <% if(isConnected){%>
         <li><a href="#"><i class="material-icons">email</i></a></li>
-        <li><a class="waves-effect waves-light"><i class="material-icons right" data-toggle="modal" data-target="#myModal">face</i><%=username%></a></li>
+        <li><a href="/epiflex/Profile" class="waves-effect waves-light"><i class="material-icons right" data-toggle="modal" data-target="#myModal">face</i><%=username%></a></li>
         <%}else{%>
         <li><a class="waves-effect waves-light modal-trigger" href="#modal-profil">S'authentifier</a></li>
         <%}%>
