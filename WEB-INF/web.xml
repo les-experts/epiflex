@@ -35,7 +35,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ProductDetails</servlet-name>
-    <url-pattern>/Product</url-pattern>
+    <url-pattern>/Product/*</url-pattern>
   </servlet-mapping>
 
   <servlet>
