@@ -7,7 +7,8 @@ WEB_INF_PATH=WEB-INF
 VUE_PATH=src/vue
 CONTROLERS_PATH=src/controlers
 STATIQUE_PATH=statique
-DB_PATH=db/productImages
+DB_PATH=db/epiflex.db
+DB_IMAGES_PATH=db/productImages
 #src/controlers/Authentication.java
 
 
@@ -18,7 +19,7 @@ javac -cp $CLASSPATH -sourcepath src -d $WEB_INF_PATH/classes $MODELS_PATH/*.jav
 javac -cp $CLASSPATH -sourcepath src -d $WEB_INF_PATH/classes $MAPPERS_PATH/*.java
 javac -cp $CLASSPATH -sourcepath src -d $WEB_INF_PATH/classes $CONTROLERS_PATH/*.java
 
-jar cf epiflex.war $WEB_INF_PATH $VUE_PATH $STATIQUE_PATH $DB_PATH
+jar cf epiflex.war $WEB_INF_PATH $VUE_PATH $STATIQUE_PATH $DB_PATH $DB_IMAGES_PATH
 cp epiflex.war $JBOSS_HOME/standalone/deployments
 
 echo -e "\n\e]8;;http://localhost:8080/epiflex/MarketPlace\aACCEDER AU SITE (CTRL+LCLICK)\e]8;;\a\n"
