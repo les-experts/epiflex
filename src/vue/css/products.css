@@ -1,6 +1,6 @@
-.card-image {
+.card-image img {
   height: 200px;
-  overflow: hidden;
+  object-fit: cover;
 }
 
 #row-products {

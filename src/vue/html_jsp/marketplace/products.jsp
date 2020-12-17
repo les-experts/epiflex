@@ -10,7 +10,15 @@
 %>
   <div class="row" id="row-products">
 
-      <% for (Product prod : products) { %>
+      <% for (Product prod : products) {
+        int maxLength = 15;
+        String title = prod.getTitle();
+        int endSubstr = Math.min(maxLength, title.length());
+        String endString = "";
+        if (endSubstr == maxLength) {
+          endString = "...";
+        }
+      %>
 
       <div class="col s6 m3">
 
