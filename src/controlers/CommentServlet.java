@@ -29,7 +29,7 @@ public class CommentServlet extends ControlerServlet {
     AuthenticationHandler handler = new AuthenticationHandler(request);
     User user = handler.loadUser();
     boolean validPOST = verifInt(idProduct) && verifInt(rank) && verifText(comment) && user != null;
-    String url = "/ProductDetails";
+    String url = "/Product/"+idProduct;
 
     if(validPOST){
       System.out.println("enterValidation");

@@ -39,7 +39,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ProductDetails</servlet-name>
-    <url-pattern>/ProductDetails</url-pattern>
+    <url-pattern>/Product/*</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Comment</servlet-name>
