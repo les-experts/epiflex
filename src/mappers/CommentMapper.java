@@ -77,7 +77,7 @@ public class CommentMapper {
   public void insert(int PRO_id, int USR_id, int COM_rating, String COM_content){
     int idcomm = this.maxID()+1;
     String req = "INSERT INTO Comment(COM_id,USR_id,COM_rating,COM_content,COM_date,PRO_id) VALUES(?,?,?,?,date('now'),?)";
-    System.out.println("INSERT INTO Comment(COM_id,USR_id,COM_rating,COM_content,COM_date,PRO_id) VALUES("+idcomm+","+USR_id+","+COM_rating+","+COM_content+",date('now'),"+PRO_id+")");
+
     try{
       PreparedStatement ps = this.conn.prepareStatement(req);
 			ps.setInt(1,idcomm);

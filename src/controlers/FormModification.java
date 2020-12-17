@@ -30,7 +30,7 @@ public class FormModification extends ControlerServlet {
   public void doPost(HttpServletRequest requete, HttpServletResponse reponse){
     HttpSession session = requete.getSession();
     User user = (User)session.getAttribute("user");
-    System.out.println("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy" + user.getId());
+
     String pseudo = requete.getParameter("pseudo");
     String firstname = requete.getParameter("firstname");
     String lastname = requete.getParameter("lastname");
@@ -61,7 +61,7 @@ public class FormModification extends ControlerServlet {
   public void doGet(HttpServletRequest requete, HttpServletResponse reponse){
     HttpSession session = requete.getSession();
     User user = (User)session.getAttribute("user");
-    System.out.println(user.getId());
+
     String pseudo = requete.getParameter("pseudo");
     String firstname = requete.getParameter("firstname");
     String lastname = requete.getParameter("lastname");

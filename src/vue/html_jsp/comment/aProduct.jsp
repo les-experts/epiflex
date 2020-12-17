@@ -7,6 +7,7 @@
   boolean isConnected = (boolean) request.getAttribute("isConnected");
   String username = (String) request.getAttribute("username");
   List<Comment> listComment = (List<Comment>) request.getAttribute("listComment");
+
   for (Comment val : listComment) {
   %>
     <article>

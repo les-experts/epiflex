@@ -22,7 +22,6 @@ public class CommentServlet extends ControlerServlet {
   @Override
 	public void doPost(HttpServletRequest request, HttpServletResponse reponse){
 
-    System.out.println("enterPost");
     int rank = Integer.parseInt(request.getParameter("rank"));
     int idProduct = Integer.parseInt(request.getParameter("idProduct"));
     String comment = request.getParameter("comment");
@@ -32,7 +31,6 @@ public class CommentServlet extends ControlerServlet {
     String url = "/Product/"+idProduct;
 
     if(validPOST){
-      System.out.println("enterValidation");
       CommentMapper commMapper = CommentMapper.getInstance();
       commMapper.insert(idProduct, user.getId(), rank, comment);
     }

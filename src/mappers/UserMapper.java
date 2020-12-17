@@ -94,7 +94,6 @@ public class UserMapper {
 			ps.setString(5,user.getAddress());
 			ps.setInt(6,user.getId());
 			ps.executeUpdate();
-			System.out.println("coucou");
 		}
 		catch(SQLException e){
 			e.printStackTrace();
@@ -106,9 +105,6 @@ public class UserMapper {
 	public static void main(String[] args) {
 			UserMapper usrMap = UserMapper.getInstance();
 			User usr = usrMap.authentification("Zaneriis","130f9805895c3045eb2c854c119e84c3");
-			System.out.println(usr.getId() + " " + usr.getPseudo() + " " + usr.getRole());
 			usr = usrMap.authentification("Zaneris","130f9805895c3045eb2c854c119e84c3");
-			System.out.println(usr.getId() + " " + usr.getPseudo() + " " + usr.getRole());
-
 	}
 }
