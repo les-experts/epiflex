@@ -25,7 +25,7 @@ public class Product implements Serializable {
   public void setTitle(String title) { this.title=title; }
 
   public String getPicturePath() {
-    return "db/productImages/"+this.id+".jpg"; 
+    return "db/productImages/"+this.id+".jpg";
   }
 
   public float getPrice() { return this.price; }
@@ -44,7 +44,7 @@ public class Product implements Serializable {
 
   public User getUser() { return this.user; }
 
-  public void setUser(User idUser) { this.user=user; }
+  public void setUser(User user) { this.user = user; }
 
   public Category getCategory() { return this.category; }
 

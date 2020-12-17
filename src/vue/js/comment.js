@@ -2,7 +2,7 @@ $.ajax({
   dataType: "html",
   type : 'GET',
   url: "/epiflex/Comment",
-  data: "id=5",
+  data: "id="+idProductForAjax,
   success: function(html_content,status){
     $("#commentSection").html(html_content);
     start_onclick();

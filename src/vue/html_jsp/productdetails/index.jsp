@@ -1,24 +1,28 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page import="models.Product"%>
+
+<%
+  Product product = (Product)request.getAttribute("product");
+%>
 
 <div class="row">
   <div class="col s6">
-      <img class="img-responsive materialboxed" src="https://www.carrefour.fr/media/540x540/Photosite/PGC/P.L.S./3245414192508_PHOTOSITE_20180529_163246_0.jpg?placeholder=1" alt="Image" />
+      <img class="img-responsive materialboxed" src="<%=product.getPicturePath()%>" alt="Image" />
   </div>
   <div class="col s6 productDetails">
     <div class="row center-align">
-      <h1>Lait</h1>
+      <h1><%=product.getTitle()%></h1>
       <div class="col s6">
-        <h2>Vendeur : Léo Pacary</h2>
+        <h2>Vendeur : <%=product.getUser().getPseudo()%></h2>
       </div>
       <div class="col s6">
-        <h2>190€</h2>
+        <h2><%=product.getPrice()%>€</h2>
       </div>
     </div>
     <div class="row">
       <div class="col s12">
         <div class="card-panel teal">
-          <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+          <span class="white-text"><%=product.getDescription()%>
           </span>
         </div>
       </div>
@@ -33,5 +37,9 @@
     </div>
   </div>
 </div>
+
+<script>
+  var idProductForAjax = "<%out.print(product.getId());%>";
+</script>
 <div id="commentSection" class="container">
 </div>

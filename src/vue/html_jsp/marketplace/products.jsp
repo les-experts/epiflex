@@ -32,7 +32,7 @@
 
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4"><%=title.substring(0,endSubstr) + endString %><i class="material-icons right">more_vert</i></span>
-            <p><a href="/epiflex/Product">En savoir plus</a></p>
+            <p><a href="/epiflex/Product?id=<%=prod.getId()%>">En savoir plus</a></p>
           </div>
 
           <div class="card-reveal">
