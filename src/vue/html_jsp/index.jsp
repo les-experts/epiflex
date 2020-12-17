@@ -9,7 +9,7 @@
       ArrayList<String> listCss = (ArrayList<String>) request.getAttribute("csslink");
       for (String val : listCss) {
         %>
-        <link type="text/css" rel="stylesheet" href="src/vue/css/<%=val%>" >
+        <link href="src/vue/css/<%=val%>" rel="stylesheet">
         <%
       }
     %>
@@ -29,7 +29,7 @@
 
           <%-- <jsp:include page="login/index.jsp" /> --%>
             <% String linkMain =  (String)request.getAttribute("link"); %>
-            <jsp:include page="<%=linkMain%>" />
+            <jsp:include page="<%=linkMain %>" />
       </main>
 
       <jsp:include page="template/footer.jsp" />
@@ -47,4 +47,4 @@
   %>
   <jsp:include page="cochon/index.html" />
 
-</html>
+<html>

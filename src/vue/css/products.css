@@ -1,8 +1,8 @@
-#row-products {
-  margin-bottom: 0;
+.card-image {
+  height: 200px;
+  overflow: hidden;
 }
 
-.card-image img{
-  height : 200px;
-  object-fit: cover;
+#row-products {
+  margin-bottom: 0;
 }

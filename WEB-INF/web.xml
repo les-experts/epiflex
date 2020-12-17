@@ -15,6 +15,10 @@
     <servlet-name>MarketPlace</servlet-name>
     <servlet-class>controlers.MarketPlace</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>Comment</servlet-name>
+    <servlet-class>controlers.CommentServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>MarketPlace</servlet-name>
     <url-pattern>MarketPlace</url-pattern>
@@ -37,11 +41,6 @@
     <servlet-name>ProductDetails</servlet-name>
     <url-pattern>Product/*</url-pattern>
   </servlet-mapping>
-
-  <servlet>
-    <servlet-name>Comment</servlet-name>
-    <servlet-class>controlers.CommentServlet</servlet-class>
-  </servlet>
   <servlet-mapping>
     <servlet-name>Comment</servlet-name>
     <url-pattern>Comment</url-pattern>
@@ -62,7 +61,16 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>FormModification</servlet-name>
-    <url-pattern>toto</url-pattern>
+    <url-pattern>/Profilee</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>PurchasePage</servlet-name>
+    <servlet-class>controlers.PurchasePage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PurchasePage</servlet-name>
+    <url-pattern>PurchasePage</url-pattern>
   </servlet-mapping>
 
 </web-app>

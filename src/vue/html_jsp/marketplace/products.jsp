@@ -10,21 +10,11 @@
 %>
   <div class="row" id="row-products">
 
-      <% for (Product prod : products) {
-
-          int maxLength = 15;
-
-          String title = prod.getTitle();
-          int endSubstr = Math.min(maxLength, title.length());
-          String endString = "";
-          if (endSubstr == maxLength) {
-            endString = "...";
-          }
-         %>
+      <% for (Product prod : products) { %>
 
       <div class="col s6 m3">
 
-        <div class="card hoverable small">
+        <div class="card small">
 
           <div class="card-image waves-effect waves-block waves-light">
             <img class="activator" src="<%=prod.getPicturePath()%>">
