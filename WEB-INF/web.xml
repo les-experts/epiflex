@@ -61,7 +61,16 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>FormModification</servlet-name>
-    <url-pattern>/toto</url-pattern>
+    <url-pattern>/Profilee</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>PurchasePage</servlet-name>
+    <servlet-class>controlers.PurchasePage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PurchasePage</servlet-name>
+    <url-pattern>PurchasePage</url-pattern>
   </servlet-mapping>
 
 </web-app>
