@@ -6,3 +6,23 @@
 #row-products {
   margin-bottom: 0;
 }
+
+.row-savoir-plus {
+  margin-bottom: 0;
+}
+
+.card .card-content {
+  padding-bottom : 10px !important;
+}
+
+.card-image {
+  cursor: help;
+}
+
+.row-price {
+  margin-bottom: 0;
+}
+
+.card-content {
+  cursor : pointer;
+}

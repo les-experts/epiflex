@@ -7,10 +7,6 @@ html {
 	cursor: url("../../../statique/ble.png"), auto;
 }
 
-a {
-	cursor: url("../../statique/pointer.png") 10 10, auto;
-}
-
 #logo-epiflex {
   position: absolute;
   top: 5%;

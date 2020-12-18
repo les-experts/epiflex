@@ -11,7 +11,7 @@
   <div class="row" id="row-products">
 
       <% for (Product prod : products) {
-        int maxLength = 15;
+        int maxLength = 20;
         String title = prod.getTitle();
         int endSubstr = Math.min(maxLength, title.length());
         String endString = "";
@@ -20,21 +20,23 @@
         }
       %>
 
-      <div class="col s6 m3">
+      <div class="col s6 m4 l3">
 
-        <div class="card small">
+        <div class="card hoverable small">
 
-          <div class="card-image waves-effect waves-block waves-light">
+          <div class="activator card-image waves-effect waves-block waves-light">
             <img class="activator" src="<%=prod.getPicturePath()%>">
           </div>
 
-          <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4"><%=title.substring(0,endSubstr) + endString %><i class="material-icons right">more_vert</i></span>
-            <p><a href="/epiflex/Product?id=<%=prod.getId()%>">En savoir plus</a></p>
+          <div onclick="location.href='/epiflex/Product?id=<%=prod.getId()%>';" class="card-content">
+            <span class="card-title center-align grey-text text-darken-4"><%=title.substring(0,endSubstr) + endString %></span>
+            <div class="row center-align row-price">
+              <span><%=prod.getPrice()%>€</span>
+            </div>
           </div>
 
           <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4"><%=prod.getTitle()%><i class="material-icons right">close</i></span>
+            <span class="card-title grey-text text-darken-4"><%=title.substring(0,endSubstr) + endString %><i class="material-icons right">close</i></span>
             <p><%=prod.getDescription()%></p>
           </div>
 
