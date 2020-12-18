@@ -3,7 +3,10 @@
 <%@ page import="models.Product"%>
 
 <%
+  System.out.println("commentaires du produit : " + request.getAttribute("product"));
+
   Product product = (Product)request.getAttribute("product");
+
 %>
 
 <section class="commentHistory">
@@ -40,7 +43,7 @@ if(isConnected){
   <div class="container form_comment">
     <h2>Donne ton avis sur ce produit !</h2>
     <form method="POST" action="Comment">
-      <input name="idProduct" type="hidden" value="<%=product.getId()%>">
+      <input name="id" type="hidden" value="<%=product.getId()%>">
       <div class="form_ranking">
         <img src="statique/etoile-full.png" class="form_ranking_star" data="1">
         <img src="statique/etoile-full.png" class="form_ranking_star" data="2">

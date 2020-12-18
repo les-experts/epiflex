@@ -4,6 +4,7 @@ import javax.servlet .*;
 import javax.servlet.http .*;
 
 import mappers.CommentMapper;
+import mappers.ProductMapper;
 import models.Comment;
 import models.User;
 
@@ -23,7 +24,7 @@ public class CommentServlet extends ControlerServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse reponse){
 
     int rank = Integer.parseInt(request.getParameter("rank"));
-    int idProduct = Integer.parseInt(request.getParameter("idProduct"));
+    int idProduct = Integer.parseInt(request.getParameter("id"));
     String comment = request.getParameter("comment");
     AuthenticationHandler handler = new AuthenticationHandler(request);
     User user = handler.loadUser();
@@ -42,7 +43,10 @@ public class CommentServlet extends ControlerServlet {
     int idProduct = Integer.parseInt(request.getParameter("id"));
     //int idProduct = 5;
     CommentMapper mapper = CommentMapper.getInstance();
+    ProductMapper promap = ProductMapper.getInstance();
+
     request.setAttribute("listComment", mapper.getCommentByProduct(idProduct));
+    request.setAttribute("product", promap.productById(idProduct));
     try{
       AuthenticationHandler handler = new AuthenticationHandler(request);
       request.setAttribute("isConnected", handler.isConnected());
