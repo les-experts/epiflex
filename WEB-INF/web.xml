@@ -8,20 +8,16 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Authentication</servlet-name>
-    <url-pattern>Authentication</url-pattern>
+    <url-pattern>/Authentication</url-pattern>
   </servlet-mapping>
 
   <servlet>
     <servlet-name>MarketPlace</servlet-name>
     <servlet-class>controlers.MarketPlace</servlet-class>
   </servlet>
-  <servlet>
-    <servlet-name>Comment</servlet-name>
-    <servlet-class>controlers.CommentServlet</servlet-class>
-  </servlet>
   <servlet-mapping>
     <servlet-name>MarketPlace</servlet-name>
-    <url-pattern>MarketPlace</url-pattern>
+    <url-pattern>/MarketPlace</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -30,7 +26,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ListProducts</servlet-name>
-    <url-pattern>ListProducts</url-pattern>
+    <url-pattern>/ListProducts</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -39,11 +35,16 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ProductDetails</servlet-name>
-    <url-pattern>Product/*</url-pattern>
+    <url-pattern>/Product</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Comment</servlet-name>
+    <servlet-class>controlers.CommentServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>Comment</servlet-name>
-    <url-pattern>Comment</url-pattern>
+    <url-pattern>/Comment</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -52,7 +53,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Profile</servlet-name>
-    <url-pattern>Profile</url-pattern>
+    <url-pattern>/Profile</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -70,7 +71,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>PurchasePage</servlet-name>
-    <url-pattern>PurchasePage</url-pattern>
+    <url-pattern>/PurchasePage</url-pattern>
   </servlet-mapping>
 
 </web-app>

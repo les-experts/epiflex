@@ -1,6 +1,11 @@
-
 <%@ page import="java.util.List"%>
 <%@ page import="models.Comment"%>
+<%@ page import="models.Product"%>
+
+<%
+  Product product = (Product)request.getAttribute("product");
+%>
+
 <section class="commentHistory">
   <%
   boolean isConnected = (boolean) request.getAttribute("isConnected");
@@ -35,7 +40,7 @@ if(isConnected){
   <div class="container form_comment">
     <h2>Donne ton avis sur ce produit !</h2>
     <form method="POST" action="Comment">
-      <input name="idProduct" type="hidden" value="5">
+      <input name="idProduct" type="hidden" value="<%=product.getId()%>">
       <div class="form_ranking">
         <img src="statique/etoile-full.png" class="form_ranking_star" data="1">
         <img src="statique/etoile-full.png" class="form_ranking_star" data="2">

@@ -28,7 +28,7 @@ public class CommentServlet extends ControlerServlet {
     AuthenticationHandler handler = new AuthenticationHandler(request);
     User user = handler.loadUser();
     boolean validPOST = verifInt(idProduct) && verifInt(rank) && verifText(comment) && user != null;
-    String url = "/Product/"+idProduct;
+    String url = "/Product?id="+idProduct;
 
     if(validPOST){
       CommentMapper commMapper = CommentMapper.getInstance();
@@ -60,12 +60,12 @@ public class CommentServlet extends ControlerServlet {
   public boolean verifText(String data){
     return true;
   }
+
   private void retoureProduit(HttpServletRequest request, HttpServletResponse reponse, String url){
-    try{
-      (request.getRequestDispatcher(url)).forward(request ,reponse);
-    }
-    catch(Exception e){
-      System.out.println(e.getMessage());
+    try {
+      reponse.sendRedirect(request.getContextPath() + url); //ça s'est mal passé mal si on est arrivé ici
+    } catch (IOException e) {
+      System.out.println("Echec de la redirection");
     }
   }
 }
