@@ -74,4 +74,13 @@
     <url-pattern>/PurchasePage</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>PasswordModification</servlet-name>
+    <servlet-class>controlers.PasswordModification</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PasswordModification</servlet-name>
+    <url-pattern>/PasswordModification</url-pattern>
+  </servlet-mapping>
+
 </web-app>

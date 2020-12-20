@@ -23,6 +23,7 @@ public class FormModification extends ControlerServlet {
 	@Override
 	protected ArrayList<String> getJS(){
 		ArrayList<String> srcJS = new ArrayList<String>();
+		srcJS.add("profile.js");
 		return srcJS;
 	}
 
@@ -30,30 +31,40 @@ public class FormModification extends ControlerServlet {
   public void doPost(HttpServletRequest requete, HttpServletResponse reponse){
     HttpSession session = requete.getSession();
     User user = (User)session.getAttribute("user");
-
-    String pseudo = requete.getParameter("pseudo");
-    String firstname = requete.getParameter("firstname");
-    String lastname = requete.getParameter("lastname");
-    String email = requete.getParameter("email");
-    String address = requete.getParameter("address");
-    if(!user.getPseudo().equals(pseudo)){
-      user.setPseudo(pseudo);
-    }
-    if(!user.getFirstname().equals(firstname)){
-      user.setFirstname(firstname);
-    }
-    if(!user.getLastname().equals(lastname)){
-      user.setLastname(lastname);
-    }
-    if(!user.getEmail().equals(email)){
-      user.setEmail(email);
-    }
-    if(!user.getAddress().equals(address)){
-      user.setAddress(address);
-    }
-    UserMapper mapper = UserMapper.getInstance();
-    mapper.updateUser(user);
-    session.setAttribute("user",user);
+		if(requete.getParameter("confirmForm")!=null){
+			String pseudo = requete.getParameter("pseudo");
+	    String firstname = requete.getParameter("firstname");
+	    String lastname = requete.getParameter("lastname");
+	    String email = requete.getParameter("email");
+	    String address = requete.getParameter("address");
+	    if(!user.getPseudo().equals(pseudo)){
+	      user.setPseudo(pseudo);
+	    }
+	    if(!user.getFirstname().equals(firstname)){
+	      user.setFirstname(firstname);
+	    }
+	    if(!user.getLastname().equals(lastname)){
+	      user.setLastname(lastname);
+	    }
+	    if(!user.getEmail().equals(email)){
+	      user.setEmail(email);
+	    }
+	    if(!user.getAddress().equals(address)){
+	      user.setAddress(address);
+	    }
+	    UserMapper mapper = UserMapper.getInstance();
+	    mapper.updateUser(user);
+	    session.setAttribute("user",user);
+		}
+		else{
+			session.removeAttribute("user");
+			try{
+				(requete.getRequestDispatcher("MarketPlace")).forward(requete ,reponse);
+			}
+			catch(Exception e){
+				System.out.println(e.getMessage());
+			}
+		}
     this.view(requete,reponse);
   }
 
@@ -61,7 +72,6 @@ public class FormModification extends ControlerServlet {
   public void doGet(HttpServletRequest requete, HttpServletResponse reponse){
     HttpSession session = requete.getSession();
     User user = (User)session.getAttribute("user");
-
     String pseudo = requete.getParameter("pseudo");
     String firstname = requete.getParameter("firstname");
     String lastname = requete.getParameter("lastname");

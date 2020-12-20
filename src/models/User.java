@@ -51,4 +51,5 @@ public class User implements Serializable {
   public String getPseudo() { return this.pseudo; }
 
   public void setPseudo(String pseudo) { this.pseudo=pseudo; }
+
 }

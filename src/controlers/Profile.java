@@ -22,6 +22,7 @@ public class Profile extends ControlerServlet {
 	@Override
 	protected ArrayList<String> getJS(){
 		ArrayList<String> srcJS = new ArrayList<String>();
+		srcJS.add("profile.js");
 		return srcJS;
 	}
 

@@ -100,7 +100,37 @@ public class UserMapper {
 		}
 	}
 
+	public String getPassword(int id){
+		String req = "SELECT USR_password FROM User WHERE USR_id = ?";
+		try{
+			PreparedStatement ps = this.conn.prepareStatement(req);
+			ps.setInt(1,id);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()){
+				return rs.getString("USR_password");
+			}
+			else
+				return null;
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+			return null;
+		}
+	}
 
+	public void updatePassword(int id, String newPasswordMD5){
+		System.out.println("updatePassword");
+		String req = "UPDATE User SET USR_password = ? WHERE USR_id = ?";
+		try{
+			PreparedStatement ps = this.conn.prepareStatement(req);
+			ps.setString(1,newPasswordMD5);
+			ps.setInt(2,id);
+			ps.executeUpdate();
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
 
 	public static void main(String[] args) {
 			UserMapper usrMap = UserMapper.getInstance();

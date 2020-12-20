@@ -22,6 +22,7 @@ public class MarketPlace extends ControlerServlet {
 
 	@Override
 	public void doGet(HttpServletRequest requete, HttpServletResponse reponse){
+		System.out.println("doGet");
 		this.commonPostGetAttributes(requete, reponse );
 		this.view(requete,reponse);
 	}
