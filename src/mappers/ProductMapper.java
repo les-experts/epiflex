@@ -33,6 +33,7 @@ public class ProductMapper {
       }
       return instance;
     }catch(SQLException e){
+      System.out.println("error getInstance");
       e.printStackTrace();
       return null;
     }
@@ -101,6 +102,36 @@ public class ProductMapper {
       e.printStackTrace();
       return null;
     }
+  }
 
+  public int maxID(){
+    String req = "SELECT max(PRO_id) AS nb FROM Product";
+    try{
+      ResultSet rs = this.conn.createStatement().executeQuery(req);
+      rs.next();
+      return rs.getInt("nb");
+    }
+    catch(SQLException e){
+      e.printStackTrace();
+      return 0;
+    }
+  }
+
+  public void insertProduct(String title, String description, int userId, double price, int catId){
+    int idProduct = this.maxID()+1;
+    String req = "INSERT INTO Product(PRO_id, PRO_title, PRO_description, USR_id, PRO_price, CAT_id, PRO_date) VALUES(?,?,?,?,?,?,date('now'))";
+    try{
+      PreparedStatement ps = this.conn.prepareStatement(req);
+			ps.setInt(1,idProduct);
+			ps.setString(2,title);
+			ps.setString(3,description);
+			ps.setInt(4,userId);
+      ps.setDouble(5,price);
+			ps.setInt(6,catId);
+			ps.executeUpdate();
+    }
+		catch(SQLException e){
+			e.printStackTrace();
+		}
   }
 }
