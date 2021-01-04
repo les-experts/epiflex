@@ -41,14 +41,20 @@
           <label for="password">Mot de passe</label>
         </div>
       </div>
-
-    </div>
-    <div class="modal-footer">
-      <button class="btn waves-effect waves-light" type="submit" name="action">Se connecter
-        <i class="material-icons right">send</i>
-      </button>
-      <a type="button" class="btn btn-flat waves-effect modal-close">Annuler</a>
-    </div>
-</form>
-
+      <div class="row">
+        <div class="input-field col s12 center">
+          <button class="btn waves-effect waves-light" type="submit" name="action">Se connecter
+            <i class="material-icons right">send</i>
+          </button>
+          <a type="button" class="btn btn-flat waves-effect modal-close">Annuler</a>
+        </div>
+      </div>
+    </form>
+    <form method="GET" action="Inscription">
+      <div class="input-field col s12">
+        <p>Pas encore inscrit ? </p>
+        <button class="btn waves-effect waves-light green" type="submit" name="action">Créer un compte
+        </button>
+      </div>
+    </form>
 </div>

@@ -92,4 +92,13 @@
     <url-pattern>/AddProduct</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>Inscription</servlet-name>
+    <servlet-class>controlers.Inscription</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Inscription</servlet-name>
+    <url-pattern>/Inscription</url-pattern>
+  </servlet-mapping>
+
 </web-app>

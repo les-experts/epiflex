@@ -132,6 +132,39 @@ public class UserMapper {
 		}
 	}
 
+	public void insertUser(String pseudo, String firstname, String lastname, String email, String address, String password){
+		int idUser = this.maxID()+1;
+		String req = "INSERT INTO User(USR_id,ROL_id,USR_lastname,USR_firstname,USR_email,USR_address,USR_password,USR_pseudo) VALUES (?,?,?,?,?,?,?,?);";
+		try{
+      PreparedStatement ps = this.conn.prepareStatement(req);
+			ps.setInt(1,idUser);
+			ps.setInt(2,2);
+			ps.setString(3,lastname);
+			ps.setString(4,firstname);
+			ps.setString(5,email);
+			ps.setString(6,address);
+			ps.setString(7,password);
+			ps.setString(8,pseudo);
+			ps.executeUpdate();
+    }
+		catch(SQLException e){
+			e.printStackTrace();
+		}
+	}
+
+	public int maxID(){
+		String req = "SELECT max(USR_id) AS nb FROM User";
+		try{
+			ResultSet rs = this.conn.createStatement().executeQuery(req);
+			rs.next();
+			return rs.getInt("nb");
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+			return 0;
+		}
+	}
+
 	public static void main(String[] args) {
 			UserMapper usrMap = UserMapper.getInstance();
 			User usr = usrMap.authentification("Zaneriis","130f9805895c3045eb2c854c119e84c3");
