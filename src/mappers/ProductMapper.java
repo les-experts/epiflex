@@ -73,6 +73,38 @@ public class ProductMapper {
     }
   }
 
+  public List<Product> productsByUser(int idUrs) {
+    String req = "SELECT PRO_id, PRO_title, PRO_description, USR_id, PRO_price, CAT_id, PRO_date FROM Product WHERE USR_id = ?;";
+    try{
+      PreparedStatement ps = this.conn.prepareStatement(req);
+      ps.setInt(1,idUrs);
+      ResultSet rs = ps.executeQuery();
+
+      List<Product> allProducts = new ArrayList<Product>();
+      while(rs.next()){
+        Product pro = new Product();
+        pro.setId(rs.getInt("PRO_id"));
+        pro.setTitle(rs.getString("PRO_title"));
+        //product.setPicture(rs.getString("PRO_picture"));
+        pro.setDescription(rs.getString("PRO_description"));
+
+        UserMapper userMap = UserMapper.getInstance();
+        pro.setUser(userMap.userById(rs.getInt("USR_id"))); //!!!!!!!!!
+
+        pro.setPrice(rs.getFloat("PRO_price"));
+
+        CategoryMapper catMap = CategoryMapper.getInstance();
+        pro.setCategory(catMap.categoryById(rs.getInt("CAT_id")));
+        allProducts.add(pro);
+      }
+      return allProducts;
+    }
+    catch(SQLException e){
+      e.printStackTrace();
+      return null;
+    }
+  }
+
   public Product productById(int idPro) {
     String req = "SELECT PRO_id, PRO_title, PRO_description, USR_id, PRO_price, CAT_id, PRO_date FROM Product WHERE PRO_id = ?;";
     try{

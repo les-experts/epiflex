@@ -46,7 +46,6 @@ public class ProductDetails extends ControlerServlet {
 				this.view(requete,reponse);
 				return; //on arrête la méthode sinon ça continue
 			}
-
 		} catch (Exception e) {
 			System.out.println(e);
 		}

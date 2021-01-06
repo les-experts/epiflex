@@ -101,4 +101,13 @@
     <url-pattern>/Inscription</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>myProduct</servlet-name>
+    <servlet-class>controlers.MyProductServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>myProduct</servlet-name>
+    <url-pattern>/mesProduit</url-pattern>
+  </servlet-mapping>
 </web-app>
