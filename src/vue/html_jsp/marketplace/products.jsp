@@ -5,7 +5,7 @@
 
 <%
   ArrayList<Product> products = (ArrayList<Product>) request.getAttribute("products");
-  if (products != null) {
+  if (products != null && !products.isEmpty() ){
 %>
   <div class="row" id="row-products">
 

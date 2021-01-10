@@ -33,7 +33,6 @@ public class ProductDetails extends ControlerServlet {
 
 	@Override
 	public void doGet(HttpServletRequest requete, HttpServletResponse reponse){
-
 		try {
 			int id = Integer.parseInt(requete.getParameter("id"));
 			ProductMapper pmap = ProductMapper.getInstance();
@@ -49,8 +48,6 @@ public class ProductDetails extends ControlerServlet {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-
-
 		try {
 			reponse.sendRedirect(requete.getContextPath() + "/MarketPlace"); //ça s'est mal passé mal si on est arrivé ici
 		} catch (IOException e) {
@@ -58,5 +55,23 @@ public class ProductDetails extends ControlerServlet {
 		}
 
 	}
+
+	public void doPost(HttpServletRequest requete, HttpServletResponse reponse){
+		HttpSession session = requete.getSession();
+		Product product = (Product)session.getAttribute("product");
+		ArrayList<Integer> panier;
+	  if(session.getAttribute("panier")!=null){
+	    panier = (ArrayList<Integer>)session.getAttribute("panier");
+	  }
+	  else{
+	    panier = new ArrayList<Integer>();
+	  }
+	  if(!panier.contains(product.getId()))
+	    panier.add(product.getId());
+	  session.setAttribute("panier", panier);
+		requete.setAttribute("product",product);
+		this.view(requete,reponse);
+	}
+
 
 }
