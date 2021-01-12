@@ -1,8 +1,19 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="models.Product"%>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 
 <%
   Product product = (Product)request.getAttribute("product");
+  application.log("dans la jsp :" + product.getTitle());
+  session.setAttribute("product",product);
+  List<Integer> panier;
+  if(session.getAttribute("panier")!=null){
+    application.log("ya un panier frero");
+  }
+  else{
+    application.log("pas de panier");
+  }
 %>
 
 <div class="row">
@@ -27,14 +38,17 @@
         </div>
       </div>
     </div>
-    <div class="row center-align" >
-      <div class="col s6">
-        <a type="button" class="btn btn-flat light-green">Ajouter au panier</a>
+    <form method="POST" action="Product">
+      <div class="row center-align" >
+        <div class="col s6">
+          <button class="btn waves-effect waves-light" type="submit" name="action" >Ajouter au panier
+          <i class="material-icons right">add_shopping_cart</i>
+        </div>
+        <div class="col s6">
+          <a type="button" class="btn btn-flat  red lighten-1 ">Contacter le vendeur</a>
+        </div>
       </div>
-      <div class="col s6">
-        <a type="button" class="btn btn-flat  red lighten-1 ">Contacter le vendeur</a>
-      </div>
-    </div>
+    </form>
   </div>
 </div>
 

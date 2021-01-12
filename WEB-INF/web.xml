@@ -110,4 +110,14 @@
     <servlet-name>myProduct</servlet-name>
     <url-pattern>/mesProduit</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Panier</servlet-name>
+    <servlet-class>controlers.Panier</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Panier</servlet-name>
+    <url-pattern>/Panier</url-pattern>
+  </servlet-mapping>
 </web-app>

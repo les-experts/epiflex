@@ -9,7 +9,7 @@
       <a href="/epiflex/MarketPlace" class="brand-logo center">Marketplace</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="#">Mes produits</a></li>
-        <li><a href="#"><i class="material-icons">shopping_cart</i></a></li>
+        <li><a href="/epiflex/Panier"><i class="material-icons">shopping_cart</i></a></li>
         <% if(isConnected){%>
         <li><a href="#"><i class="material-icons">email</i></a></li>
         <li><a href="/epiflex/Profile" class="waves-effect waves-light"><i class="material-icons right">face</i><%=username%></a></li>
