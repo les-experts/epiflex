@@ -18,3 +18,4 @@ public class Discussion extends ControlerServlet {
 	protected String getLink(){
 		return "messagerie/messagerie.jsp";
 	}
+}
