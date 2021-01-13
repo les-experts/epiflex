@@ -16,8 +16,6 @@
 }
 
 .row-produit-panier {
-  margin-left : 2%;
-  margin-right: 2%;
   background-color: white;
 }
 
@@ -25,4 +23,9 @@
   height: 300px;
   width: 100%;
   object-fit: cover;
+}
+
+.row-panier {
+  margin-bottom: 0 !important;
+  padding-bottom: 20px;
 }

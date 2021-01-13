@@ -13,7 +13,7 @@
         <%
       }
     %>
-    <title>Epiflex !</title>
+    <title>Epi'flex !</title>
   </head>
 
   <body class="container">
