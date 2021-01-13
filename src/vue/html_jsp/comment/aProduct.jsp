@@ -1,6 +1,7 @@
 <%@ page import="java.util.List"%>
 <%@ page import="models.Comment"%>
 <%@ page import="models.Product"%>
+<%@ page contentType="text/plain; charset=UTF-8" %>
 
 <%
   System.out.println("commentaires du produit : " + request.getAttribute("product"));
@@ -12,6 +13,7 @@
 <section class="commentHistory">
   <%
   boolean isConnected = (boolean) request.getAttribute("isConnected");
+  boolean hasAlreadyPost = (boolean) request.getAttribute("hasAlreadyPost");
   String username = (String) request.getAttribute("username");
   List<Comment> listComment = (List<Comment>) request.getAttribute("listComment");
 
@@ -38,7 +40,7 @@
     </article>
   <%
 }
-if(isConnected){
+if(isConnected && !hasAlreadyPost){
 %>
   <div class="container form_comment">
     <h2>Donne ton avis sur ce produit !</h2>

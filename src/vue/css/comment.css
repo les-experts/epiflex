@@ -24,6 +24,7 @@
 	border: 1px solid #c1ab7d;
 	border-radius: 0 0 5px 5px;
 	text-align: justify;
+	word-wrap: break-word;
 }
 main{
 	padding-bottom:15px;
