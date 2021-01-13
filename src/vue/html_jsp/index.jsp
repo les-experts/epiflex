@@ -13,7 +13,7 @@
         <%
       }
     %>
-    <title>Remplacer_par_un_titre</title>
+    <title>Epiflex !</title>
   </head>
 
   <body class="container">
