@@ -23,34 +23,46 @@ public class CommentServlet extends ControlerServlet {
   @Override
 	public void doPost(HttpServletRequest request, HttpServletResponse reponse){
 
+    System.out.println("test p1");
     int rank = Integer.parseInt(request.getParameter("rank"));
     int idProduct = Integer.parseInt(request.getParameter("id"));
     String comment = request.getParameter("comment");
     AuthenticationHandler handler = new AuthenticationHandler(request);
     User user = handler.loadUser();
+    System.out.println("test p2");
     boolean validPOST = verifInt(idProduct) && verifInt(rank) && verifText(comment) && user != null;
     String url = "/Product?id="+idProduct;
-
-    if(validPOST){
-      CommentMapper commMapper = CommentMapper.getInstance();
+    CommentMapper commMapper = CommentMapper.getInstance();
+    boolean hasAlreadyPost = commMapper.hasAlreadyPost(idProduct,user.getId());
+    if(validPOST && !hasAlreadyPost){
       commMapper.insert(idProduct, user.getId(), rank, comment);
     }
     retoureProduit(request,reponse,url);
+    System.out.println("test p3");
 	}
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse reponse){
+
+    System.out.println("test-1");
     int idProduct = Integer.parseInt(request.getParameter("id"));
     //int idProduct = 5;
+    System.out.println("test0");
     CommentMapper mapper = CommentMapper.getInstance();
     ProductMapper promap = ProductMapper.getInstance();
-
-    request.setAttribute("listComment", mapper.getCommentByProduct(idProduct));
-    request.setAttribute("product", promap.productById(idProduct));
     try{
       AuthenticationHandler handler = new AuthenticationHandler(request);
+      User user = handler.loadUser();
+      boolean hasAlreadyPost = true;
+      if(handler.isConnected()){
+        hasAlreadyPost = mapper.hasAlreadyPost(idProduct,user.getId());
+
+      }
+      request.setAttribute("listComment", mapper.getCommentByProduct(idProduct));
+      request.setAttribute("hasAlreadyPost", hasAlreadyPost);
+      request.setAttribute("product", promap.productById(idProduct));
       request.setAttribute("isConnected", handler.isConnected());
-      request.setAttribute("username", (handler.loadUser() == null)?"Visiteur":handler.loadUser().getPseudo());
+      request.setAttribute("username", (user == null)?"Visiteur":handler.loadUser().getPseudo());
       (request.getRequestDispatcher("src/vue/html_jsp/comment/aProduct.jsp")).forward(request ,reponse);
     }
     catch(Exception e){
