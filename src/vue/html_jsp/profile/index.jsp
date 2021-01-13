@@ -20,6 +20,7 @@
         out.println("<p style=\"color:red; font-size:100%; text-align:center;\">Erreur : échec de la modification du mot de passe.</p>");
       }
     }%>
+  </div>
 </div>
 <form method="POST" action="/epiflex/Profile">
   <div class="row">
@@ -57,19 +58,19 @@
   <div class="row">
     <div class="col s12 center-align">
       <button class="btn red waves-effect waves-light modal-trigger" type="button" name="action" href="#modal-password">Modifier le mot de passe
-      <i class="material-icons right">lock</i>
+      <i class="material-icons right">lock</i></button>
     </div>
   </div>
   <div class="row">
     <div class="col s12 center-align">
       <button class="btn waves-effect waves-light" type="submit" name="confirmForm" >Confirmer les modifications
-      <i class="material-icons right">send</i>
+      <i class="material-icons right">send</i></button>
     </div>
   </div>
-<div class="row">
+<div class="row row-button-deconnexion">
   <div class="col s12 left-align">
     <button class="btn waves-effect red waves-light" type="submit" name="deconnection" >Se deconnecter
-    <i class="material-icons right">logout</i>
+    <i class="material-icons right">logout</i></button>
   </div>
 </div>
 </form>

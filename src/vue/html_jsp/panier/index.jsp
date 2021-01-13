@@ -29,7 +29,7 @@
       <p id="priceProduct"><%=prod.getPrice() %>€</p>
     </div>
     <div class="row center-align">
-      <div class="col s6">
+      <div class="col s12">
         <a class="waves-effect waves-teal btn-flat" href="/epiflex/Product?id=<%=prod.getId()%>">Détails</a>
       </div>
       <!--div class="col s6">
@@ -43,7 +43,7 @@
 
 <% }
   %>
-<div class="row">
+<div class="row row-panier">
   <div class="col s12 m10 offset-m1">
     <div class="col s12 center-align">
       <p id="price">Prix total : <%=somme%>€</p>
@@ -58,7 +58,7 @@
 </div>
 <%}
   else{%>
-      <div class="row">
+      <div class="row row-panier">
         <div class="col s12">
           <p>Aucun produit dans le panier</p>
         </div>
