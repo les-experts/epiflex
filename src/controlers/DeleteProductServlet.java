@@ -6,6 +6,7 @@ import mappers.ProductMapper;
 import models.Product;
 import models.User;
 import java.util.List;
+import java.io.IOException;
 
 public class DeleteProductServlet extends ControlerServlet {
 
@@ -31,8 +32,8 @@ public class DeleteProductServlet extends ControlerServlet {
     }
     else{
       try {
-        reponse.sendRedirect(requete.getContextPath() + "/MarketPlace"); //ça s'est mal passé si on est arrivé ici
-      } catch (IOException e) {
+        reponse.sendRedirect(request.getContextPath() + "/MarketPlace");
+      } catch (Exception e) {
         System.out.println("Echec de la redirection");
       }
     }

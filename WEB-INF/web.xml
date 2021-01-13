@@ -139,4 +139,15 @@
     <servlet-name>Delete</servlet-name>
     <url-pattern>/Delete</url-pattern>
   </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>Message</servlet-name>
+    <servlet-class>controlers.Messagerie</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Message</servlet-name>
+    <url-pattern>/Message</url-pattern>
+  </servlet-mapping>
 </web-app>
