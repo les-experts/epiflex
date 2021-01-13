@@ -8,7 +8,9 @@
     <div class="green nav-wrapper">
       <a href="/epiflex/MarketPlace" class="brand-logo center">Marketplace</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Mes produits</a></li>
+        <% if(isConnected){%>
+        <li><a href="/epiflex/mesProduit">Mes produits</a></li>
+        <%}%>
         <li><a href="/epiflex/Panier"><i class="material-icons">shopping_cart</i></a></li>
         <% if(isConnected){%>
         <li><a href="#"><i class="material-icons">email</i></a></li>
