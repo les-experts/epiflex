@@ -32,20 +32,15 @@ public class MyProductServlet extends ControlerServlet {
     AuthenticationHandler handler = new AuthenticationHandler(request);
     User user = handler.loadUser();
     if(user == null){
-      System.out.println("Test User Null");
       this.link = "marketplace/index.jsp";
       this.view(request,reponse);
     }
     else{
-      System.out.println("Test User HERE");
       ProductMapper mapper = ProductMapper.getInstance();
       List<Product> productList = mapper.productsByUser(user.getId());
 
-        System.out.println("Test User 1");
 			request.setAttribute("productList", productList);
-        System.out.println("Test User 2");
         this.view(request,reponse);
-        System.out.println("Test User 3S");
     }
   }
 }

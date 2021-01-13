@@ -49,3 +49,7 @@ h2
 	margin-top: 0 !important;
 	text-shadow: 5px 5px 10px #2c3e50;
 }
+.btn_add_product{
+  margin: auto!important;
+  display: block!important;
+}
