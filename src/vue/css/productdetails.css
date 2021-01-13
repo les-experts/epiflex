@@ -26,3 +26,7 @@ h2
 	min-height: 500px!important;
 	margin-bottom: 30px;
 }
+
+.text_desc{
+	word-wrap: break-word;
+}

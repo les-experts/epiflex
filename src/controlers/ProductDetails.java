@@ -5,6 +5,7 @@ import javax.servlet.http .*;
 import java.util.ArrayList;
 
 import models.Product;
+import models.User;
 import mappers.ProductMapper;
 
 import java.io.IOException;
@@ -42,6 +43,14 @@ public class ProductDetails extends ControlerServlet {
 			if (pro != null) {
 
 				requete.setAttribute("product", pro);
+		    AuthenticationHandler handler = new AuthenticationHandler(requete);
+		    User user = handler.loadUser();
+				if(user != null && user.getRole().getId() == 1){
+					requete.setAttribute("admin", true);
+				}
+				else{
+					requete.setAttribute("admin", false);
+				}
 				this.view(requete,reponse);
 				return; //on arrête la méthode sinon ça continue
 			}
