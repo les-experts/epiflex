@@ -13,11 +13,8 @@ import java.security.NoSuchAlgorithmException;
 
 public class Authentication extends ControlerServlet {
 
-	private String linkIfFailed = "login/Connecter.html";
-	private String linkIfConnected = "/MarketPlace";
-
 	protected String getLink(){
-		return this.linkIfFailed;
+		return "/MarketPlace";
 	}
 
 	@Override
@@ -64,7 +61,7 @@ public class Authentication extends ControlerServlet {
 
 	private void connectionPage(HttpServletRequest request, HttpServletResponse reponse){
 		try{
-			(request.getRequestDispatcher(this.linkIfConnected)).forward(request ,reponse);
+			(request.getRequestDispatcher(this.getLink())).forward(request ,reponse);
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());
@@ -72,7 +69,7 @@ public class Authentication extends ControlerServlet {
 	}
 	private void failPage(HttpServletRequest request, HttpServletResponse reponse){
 		try{
-			(request.getRequestDispatcher(this.linkIfFailed)).forward(request ,reponse);
+			reponse.sendRedirect(request.getContextPath() + this.getLink());
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());
