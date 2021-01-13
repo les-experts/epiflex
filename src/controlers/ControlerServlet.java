@@ -13,7 +13,7 @@ public abstract class ControlerServlet extends HttpServlet {
 	}
 
 	@Override
-	public void doGet(HttpServletRequest requete, HttpServletResponse reponse){
+	public void doGet(HttpServletRequest requete, HttpServletResponse reponse) throws IOException{
 		this.view(requete,reponse);
 	}
 

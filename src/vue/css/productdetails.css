@@ -30,3 +30,7 @@ h2
 .text_desc{
 	word-wrap: break-word;
 }
+
+.btn-action {
+	width: 100%;
+}
