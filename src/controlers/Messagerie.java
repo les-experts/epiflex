@@ -4,40 +4,38 @@ import javax.servlet .*;
 import javax.servlet.http .*;
 import java.util.ArrayList;
 import java.util.List;
-import models.Category;
 
-import mappers.CategoryMapper;
+import models.User;
 
-public class MarketPlace extends ControlerServlet {
+import mappers.MessageMapper;
+
+public class Messagerie extends ControlerServlet {
 
 	protected String getLink(){
-		return "marketplace/index.jsp";
+		return "messagerie/messagerie.jsp";
 	}
 
 	@Override
 	public void doPost(HttpServletRequest requete, HttpServletResponse reponse){
-		this.commonPostGetAttributes(requete, reponse );
+    HttpSession session = requete.getSession();
+
+    User sender = (User) session.getAttribute("user");
+
+    String proId = requete.getParameter("prodId");
+    String message = requete.getParameter("message");
+
 		this.view(requete,reponse);
 	}
 
 	@Override
 	public void doGet(HttpServletRequest requete, HttpServletResponse reponse){
-		this.commonPostGetAttributes(requete, reponse );
 		this.view(requete,reponse);
-	}
-
-	private void commonPostGetAttributes(HttpServletRequest requete, HttpServletResponse reponse) {
-		CategoryMapper catmap = CategoryMapper.getInstance();
-
-		List<Category> categories = catmap.allCategories();
-
-		requete.setAttribute("categories", categories);
 	}
 
   @Override
   protected ArrayList<String> getCSS(){
 		ArrayList<String> LinkCss = new ArrayList<String>();
-    LinkCss.add("marketplace.css");
+    LinkCss.add("messagerie.css");
 		return LinkCss;
 	}
 

@@ -49,29 +49,11 @@ public class ProductDetails extends ControlerServlet {
 			System.out.println(e);
 		}
 		try {
-			reponse.sendRedirect(requete.getContextPath() + "/MarketPlace"); //ça s'est mal passé mal si on est arrivé ici
+			reponse.sendRedirect(requete.getContextPath() + "/MarketPlace"); //ça s'est mal passé si on est arrivé ici
 		} catch (IOException e) {
 			System.out.println("Echec de la redirection");
 		}
 
 	}
-
-	public void doPost(HttpServletRequest requete, HttpServletResponse reponse){
-		HttpSession session = requete.getSession();
-		Product product = (Product)session.getAttribute("product");
-		ArrayList<Integer> panier;
-	  if(session.getAttribute("panier")!=null){
-	    panier = (ArrayList<Integer>)session.getAttribute("panier");
-	  }
-	  else{
-	    panier = new ArrayList<Integer>();
-	  }
-	  if(!panier.contains(product.getId()))
-	    panier.add(product.getId());
-	  session.setAttribute("panier", panier);
-		requete.setAttribute("product",product);
-		this.view(requete,reponse);
-	}
-
 
 }
