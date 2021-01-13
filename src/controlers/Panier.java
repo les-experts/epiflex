@@ -30,21 +30,35 @@ public class Panier extends ControlerServlet {
   @Override
   public void doGet(HttpServletRequest requete, HttpServletResponse reponse){
     HttpSession session = requete.getSession();
-    List<Integer> idsPanier = (List<Integer>)session.getAttribute("panier");
-    List<Product> products = new ArrayList<Product>();
-    if(idsPanier!=null){
-      ProductMapper pmap = ProductMapper.getInstance();
-      for(Integer i: idsPanier)
-        products.add(pmap.productById(i));
-    }
-    for(Product p: products)
-      System.out.println(p.getTitle());
-    session.setAttribute("products",products);
+
+		// récupération ou création du panier
+		List<Product> panier = (List<Product>)session.getAttribute("panier");
+		if (panier ==null) {
+			panier = new ArrayList<Product>();
+		}
+
+		String proId = requete.getParameter("prodId"); //on voit si on veut ajouter un produit au panier
+		if (proId != null) { //on ajoute le produit au panier
+			ProductMapper promap = ProductMapper.getInstance();
+
+			Product newProduct = promap.productById(Integer.parseInt(proId));
+			Boolean insert = true;
+
+			for (Product pro : panier) {
+				if (pro.getId() == newProduct.getId()) {
+					insert = false;
+					break;
+				}
+			}
+
+			if (insert) {
+				panier.add(newProduct);
+			}
+			session.setAttribute("product",null); // on enleve le produit qu'on viens d'ajouter à la session
+		}
+
+		session.setAttribute("panier", panier);
     this.view(requete,reponse);
   }
 
-  public void doPost(HttpServletRequest requete, HttpServletResponse reponse){
-    HttpSession session = requete.getSession();
-    List<Integer> idsPanier = (List<Integer>)session.getAttribute("panier");
-  }
 }

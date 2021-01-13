@@ -21,6 +21,15 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>Messagerie</servlet-name>
+    <servlet-class>controlers.Messagerie</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Messagerie</servlet-name>
+    <url-pattern>/Messagerie</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>ListProducts</servlet-name>
     <servlet-class>controlers.ListProducts</servlet-class>
   </servlet>
