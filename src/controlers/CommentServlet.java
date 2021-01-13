@@ -14,12 +14,25 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.lang.Integer;
 
+/**
+ * Servlet permettant de gérer les commentaires des produits.
+ * @author Leo Pacary
+ */
 public class CommentServlet extends ControlerServlet {
 
+  /**
+	 * Retourne le chemin vers la vue.
+   * @return String chemin vers la vue
+	 */
   protected String getLink(){
   	return "comment/aProduct.jsp";
   }
 
+  /**
+	 * Permet de gérer une requête en POST.
+	 * @param HttpServletRequest requete
+	 * @param HttpServletRequest reponse
+	 */
   @Override
 	public void doPost(HttpServletRequest request, HttpServletResponse reponse){
 
@@ -38,6 +51,11 @@ public class CommentServlet extends ControlerServlet {
     retoureProduit(request,reponse,url);
 	}
 
+  /**
+	 * Permet de gérer une requête en GET.
+	 * @param HttpServletRequest requete
+	 * @param HttpServletRequest reponse
+	 */
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse reponse){
 
@@ -63,6 +81,7 @@ public class CommentServlet extends ControlerServlet {
       System.out.println(e.getMessage());
     }
   }
+
 
   public boolean verifInt(int data){
     return data <= 5 && data >= 1;

@@ -8,20 +8,25 @@ import models.Product;
 import mappers.ProductMapper;
 import java.util.OptionalInt;
 
+/**
+ * Permet de gérer l'affichage des produits avec un système de recherche et de tri.
+ * @author Alexis Melo Da Silva
+ */
 public class ListProducts extends ControlerServlet {
 
-    public OptionalInt tryParse(String value) {
-      try {
-          return OptionalInt.of(Integer.parseInt(value));
-      } catch (NumberFormatException e) {
-          return OptionalInt.empty();
-      }
-    }
-
+    /**
+	   * Retourne le chemin vers la vue.
+     * @return String chemin vers la vue
+	   */
   	protected String getLink(){
   		return "marketplace/products.jsp";
   	}
 
+    /**
+  	 * Gérer les recherches et tri et les met en attribut de session.
+  	 * @param HttpServletRequest requete
+  	 * @param HttpServletRequest reponse
+  	 */
   	private void commonPostGetAttributes(HttpServletRequest requete, HttpServletResponse reponse) {
   		ProductMapper pdtmap = ProductMapper.getInstance();
 
@@ -72,6 +77,11 @@ public class ListProducts extends ControlerServlet {
   		requete.setAttribute("products", products);
   	}
 
+    /**
+     * Permet de rediriger vers le marketplace.
+     * @param HttpServletRequest requete
+     * @param HttpServletRequest reponse
+     */
     @Override
     protected void view(HttpServletRequest requete, HttpServletResponse reponse){
       try{
@@ -84,15 +94,33 @@ public class ListProducts extends ControlerServlet {
       }
     }
 
+    /**
+  	 * Permet de gérer une requête en POST.
+  	 * @param HttpServletRequest requete
+  	 * @param HttpServletRequest reponse
+  	 */
   	@Override
   	public void doPost(HttpServletRequest requete, HttpServletResponse reponse){
   		this.commonPostGetAttributes(requete, reponse);
   		this.view(requete,reponse);
   	}
 
+    /**
+  	 * Permet de gérer une requête en GET.
+  	 * @param HttpServletRequest requete
+  	 * @param HttpServletRequest reponse
+  	 */
   	@Override
   	public void doGet(HttpServletRequest requete, HttpServletResponse reponse) {
   		this.commonPostGetAttributes(requete, reponse);
   		this.view(requete, reponse);
   	}
+
+    public OptionalInt tryParse(String value) {
+      try {
+          return OptionalInt.of(Integer.parseInt(value));
+      } catch (NumberFormatException e) {
+          return OptionalInt.empty();
+      }
+    }
 }

@@ -16,17 +16,39 @@ import java.lang.Integer;
 import models.Product;
 import java.util.List;
 
+/**
+ * Permet de gérer la page Mes Produits.
+ * @author Leo Pacary
+ */
 public class MyProductServlet extends ControlerServlet {
 
+  /**
+   * Chemin vers la vue.
+   */
   protected String link = "myProduct/index.jsp";
+
+  /**
+   * Retourne le chemin vers la vue.
+   * @return String chemin vers la vue
+   */
   protected String getLink(){
   	return this.link;
   }
 
+  /**
+	 * Permet de gérer une requête en POST.
+	 * @param HttpServletRequest requete
+	 * @param HttpServletRequest reponse
+	 */
   @Override
 	public void doPost(HttpServletRequest request, HttpServletResponse reponse){
 	}
 
+  /**
+	 * Permet de gérer une requête en GET.
+	 * @param HttpServletRequest requete
+	 * @param HttpServletRequest reponse
+	 */
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse reponse){
     AuthenticationHandler handler = new AuthenticationHandler(request);

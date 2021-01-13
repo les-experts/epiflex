@@ -11,12 +11,27 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * Classe qui permet de gérer l'authentification sur le site.
+ * Hérite de la classe abstraite ControlerServlet.
+ * @author Leo Pacary
+ */
 public class Authentication extends ControlerServlet {
 
+	/**
+	 * Retourne le chemin vers la vue.
+	 * @return String chemin vers la vue
+	 */
 	protected String getLink(){
+		//on renvoie vers le MarketPlace car il n'y a pas vue associé à cette servlet.
 		return "/MarketPlace";
 	}
 
+	/**
+	 * Permet de gérer une requête en GET.
+	 * @param HttpServletRequest requete
+	 * @param HttpServletRequest reponse
+	 */
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse reponse){
 		AuthenticationHandler authHandler = new AuthenticationHandler(request);
@@ -28,6 +43,11 @@ public class Authentication extends ControlerServlet {
 		}
 	}
 
+	/**
+	 * Permet de gérer une requête en POST.
+	 * @param HttpServletRequest requete
+	 * @param HttpServletRequest reponse
+	 */
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse reponse){
 	    String username = request.getParameter("username");
@@ -59,6 +79,11 @@ public class Authentication extends ControlerServlet {
 			}
 	}
 
+	/**
+	 * Renvoie vers la vue.
+	 * @param HttpServletRequest requete
+	 * @param HttpServletRequest reponse
+	 */
 	private void connectionPage(HttpServletRequest request, HttpServletResponse reponse){
 		try{
 			(request.getRequestDispatcher(this.getLink())).forward(request ,reponse);
@@ -67,6 +92,12 @@ public class Authentication extends ControlerServlet {
 			System.out.println(e.getMessage());
 		}
 	}
+
+	/**
+	 * Renvoie vers la vue d'erreur.
+	 * @param HttpServletRequest requete
+	 * @param HttpServletRequest reponse
+	 */
 	private void failPage(HttpServletRequest request, HttpServletResponse reponse){
 		try{
 			reponse.sendRedirect(request.getContextPath() + this.getLink());

@@ -10,24 +10,45 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import mappers.UserMapper;
 
+/**
+ * Permet de gérer l'insccription sur le site (création d'un nouveau compte).
+ * @author Alexandre Vigneron
+ */
 public class Inscription extends ControlerServlet {
 
+	/**
+	 * Retourne le chemin vers la vue.
+	 * @return String chemin vers la vue
+	 */
 	protected String getLink(){
 		return "inscription/index.jsp";
 	}
 
+	/**
+	 * Retourne une liste comprenant les chemins vers les css de la vue.
+	 * @return ArrayList<String> liste des chemins vers les css
+	 */
   @Override
   protected ArrayList<String> getCSS(){
 		ArrayList<String> LinkCss = new ArrayList<String>();
 		return LinkCss;
 	}
 
+	/**
+	 * Retourne une liste comprenant les chemins vers les fichiers js de la vue.
+	 * @return ArrayList<String> liste des chemins vers les fichiers js
+	 */
 	@Override
 	protected ArrayList<String> getJS(){
 		ArrayList<String> srcJS = new ArrayList<String>();
 		return srcJS;
 	}
 
+	/**
+	 * Permet de gérer une requête en POST.
+	 * @param HttpServletRequest requete
+	 * @param HttpServletRequest reponse
+	 */
   @Override
   public void doPost(HttpServletRequest requete, HttpServletResponse reponse){
     System.out.println("doPost de inscription");
@@ -60,12 +81,22 @@ public class Inscription extends ControlerServlet {
 
   }
 
+	/**
+	 * Permet de gérer une requête en GET.
+	 * @param HttpServletRequest requete
+	 * @param HttpServletRequest reponse
+	 */
   @Override
   public void doGet(HttpServletRequest requete, HttpServletResponse reponse){
     System.out.println("doGet");
     this.view(requete,reponse);
   }
 
+	/**
+	 * Permet d'encrypter le mot de passe pour le stockage dans la base de données.
+	 * @param le mot de passe à encrypter
+	 * @return String le mot de passe encrypté
+	 */
   public String wordToMD5(String password) throws NoSuchAlgorithmException {
     MessageDigest m = MessageDigest.getInstance("MD5");
     m.reset();

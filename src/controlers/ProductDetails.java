@@ -10,12 +10,24 @@ import mappers.ProductMapper;
 
 import java.io.IOException;
 
+/**
+ * Gère la page de détails d'un produit.
+ * @author Alexandre Vigneron
+ */
 public class ProductDetails extends ControlerServlet {
 
+	/**
+	 * Retourne le chemin vers la vue.
+	 * @return String chemin vers la vue
+	 */
 	protected String getLink(){
 		return "productdetails/index.jsp";
 	}
 
+	/**
+	 * Retourne une liste comprenant les chemins vers les css de la vue.
+	 * @return ArrayList<String> liste des chemins vers les css
+	 */
   @Override
   protected ArrayList<String> getCSS(){
 		ArrayList<String> LinkCss = new ArrayList<String>();
@@ -24,6 +36,10 @@ public class ProductDetails extends ControlerServlet {
 		return LinkCss;
 	}
 
+	/**
+	 * Retourne une liste comprenant les chemins vers les fichiers js de la vue.
+	 * @return ArrayList<String> liste des chemins vers les fichiers js
+	 */
 	@Override
 	protected ArrayList<String> getJS(){
 		ArrayList<String> srcJS = new ArrayList<String>();
@@ -32,6 +48,11 @@ public class ProductDetails extends ControlerServlet {
 		return srcJS;
 	}
 
+	/**
+	 * Permet de gérer une requête en GET.
+	 * @param HttpServletRequest requete
+	 * @param HttpServletRequest reponse
+	 */
 	@Override
 	public void doGet(HttpServletRequest requete, HttpServletResponse reponse){
 		try {

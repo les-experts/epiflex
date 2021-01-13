@@ -16,17 +16,35 @@ import mappers.ProductMapper;
 import java.io.IOException;
 import java.lang.Integer;
 
+/**
+ * Permet de gérer la messagerie.
+ * @author Leo Pacary
+ */
 public class Discussion extends ControlerServlet {
 
+	/**
+	 * Retourne le chemin vers la vue.
+	 * @return String chemin vers la vue
+	 */
 	protected String getLink(){
 		return "messagerie/disscution.jsp";
 	}
 
+	/**
+	 * Retourne une liste comprenant les chemins vers les fichiers js de la vue.
+	 * @return ArrayList<String> liste des chemins vers les fichiers js
+	 */
 	protected ArrayList<String> getJS(){
 		ArrayList<String> srcJS = new ArrayList<String>();
 		srcJS.add("messagerie.js");
 		return srcJS;
 	}
+
+	/**
+	 * Permet de gérer une requête en GET.
+	 * @param HttpServletRequest requete
+	 * @param HttpServletRequest reponse
+	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse reponse){
 		AuthenticationHandler handler = new AuthenticationHandler(request);
 		User user = handler.loadUser();
