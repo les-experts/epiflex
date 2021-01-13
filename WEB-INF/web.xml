@@ -120,4 +120,25 @@
     <servlet-name>Panier</servlet-name>
     <url-pattern>/Panier</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Delete</servlet-name>
+    <servlet-class>controlers.DeleteProductServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Delete</servlet-name>
+    <url-pattern>/Delete</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>Message</servlet-name>
+    <servlet-class>controlers.Messagerie</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Message</servlet-name>
+    <url-pattern>/Message</url-pattern>
+  </servlet-mapping>
 </web-app>

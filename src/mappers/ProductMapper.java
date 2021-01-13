@@ -149,21 +149,33 @@ public class ProductMapper {
     }
   }
 
-  public void insertProduct(String title, String description, int userId, double price, int catId){
-    int idProduct = this.maxID()+1;
-    String req = "INSERT INTO Product(PRO_id, PRO_title, PRO_description, USR_id, PRO_price, CAT_id, PRO_date) VALUES(?,?,?,?,?,?,date('now'))";
-    try{
-      PreparedStatement ps = this.conn.prepareStatement(req);
-			ps.setInt(1,idProduct);
-			ps.setString(2,title);
-			ps.setString(3,description);
-			ps.setInt(4,userId);
-      ps.setDouble(5,price);
-			ps.setInt(6,catId);
-			ps.executeUpdate();
+    public void insertProduct(String title, String description, int userId, double price, int catId){
+      int idProduct = this.maxID()+1;
+      String req = "INSERT INTO Product(PRO_id, PRO_title, PRO_description, USR_id, PRO_price, CAT_id, PRO_date) VALUES(?,?,?,?,?,?,date('now'))";
+      try{
+        PreparedStatement ps = this.conn.prepareStatement(req);
+  			ps.setInt(1,idProduct);
+  			ps.setString(2,title);
+  			ps.setString(3,description);
+  			ps.setInt(4,userId);
+        ps.setDouble(5,price);
+  			ps.setInt(6,catId);
+  			ps.executeUpdate();
+      }
+  		catch(SQLException e){
+  			e.printStackTrace();
+  		}
     }
-		catch(SQLException e){
-			e.printStackTrace();
-		}
-  }
+
+    public void deleteProduct(int pro_id){
+      String req = "Delete from Product where PRO_id = ?";
+      try{
+        PreparedStatement ps = this.conn.prepareStatement(req);
+  			ps.setInt(1,pro_id);
+  			ps.executeUpdate();
+      }
+  		catch(SQLException e){
+  			e.printStackTrace();
+  		}
+    }
 }

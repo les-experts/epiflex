@@ -23,13 +23,11 @@ public class CommentServlet extends ControlerServlet {
   @Override
 	public void doPost(HttpServletRequest request, HttpServletResponse reponse){
 
-    System.out.println("test p1");
     int rank = Integer.parseInt(request.getParameter("rank"));
     int idProduct = Integer.parseInt(request.getParameter("id"));
     String comment = request.getParameter("comment");
     AuthenticationHandler handler = new AuthenticationHandler(request);
     User user = handler.loadUser();
-    System.out.println("test p2");
     boolean validPOST = verifInt(idProduct) && verifInt(rank) && verifText(comment) && user != null;
     String url = "/Product?id="+idProduct;
     CommentMapper commMapper = CommentMapper.getInstance();
@@ -38,16 +36,13 @@ public class CommentServlet extends ControlerServlet {
       commMapper.insert(idProduct, user.getId(), rank, comment);
     }
     retoureProduit(request,reponse,url);
-    System.out.println("test p3");
 	}
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse reponse){
 
-    System.out.println("test-1");
     int idProduct = Integer.parseInt(request.getParameter("id"));
     //int idProduct = 5;
-    System.out.println("test0");
     CommentMapper mapper = CommentMapper.getInstance();
     ProductMapper promap = ProductMapper.getInstance();
     try{
@@ -56,7 +51,6 @@ public class CommentServlet extends ControlerServlet {
       boolean hasAlreadyPost = true;
       if(handler.isConnected()){
         hasAlreadyPost = mapper.hasAlreadyPost(idProduct,user.getId());
-
       }
       request.setAttribute("listComment", mapper.getCommentByProduct(idProduct));
       request.setAttribute("hasAlreadyPost", hasAlreadyPost);

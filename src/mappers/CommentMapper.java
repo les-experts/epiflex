@@ -94,22 +94,17 @@ public class CommentMapper {
   }
 
   public boolean hasAlreadyPost(int idProduct, int idUser){
-  System.out.println("test 1.4.0");
     String req = "SELECT count(*) as nb from COMMENT where PRO_id = ? AND	USR_id = ?";
-    System.out.println("test 1.4.1");
     try{
       PreparedStatement ps = this.conn.prepareStatement(req);
 			ps.setInt(1,idProduct);
-      System.out.println("test 1.4.2");
 			ps.setInt(2,idUser);
 			ResultSet rs = ps.executeQuery();
       rs.next();
-      System.out.println("test 1.4.3");
       return rs.getInt("nb") != 0;
     }
     catch(SQLException e){
       e.printStackTrace();
-      System.out.println("test 1.4.4");
       return false;
     }
   }

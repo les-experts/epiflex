@@ -25,6 +25,7 @@
     <div class="row center-align">
         <%
               boolean isConnected = (boolean) request.getAttribute("isConnected");
+              boolean isAdmin = (boolean) request.getAttribute("admin");
         %>
 
         <form method="GET" action="Panier" class="col <% if (isConnected) { out.print("s6"); } else { out.print("s12"); } %> ">
@@ -35,9 +36,18 @@
         <% if(isConnected) {
         %>
 
-        <div class="col s6">
+        <div class="col <% if (isAdmin) { out.print("s3"); } else { out.print("s6"); } %>">
           <a type="button" class="waves-effect waves-light modal-trigger btn red lighten-1" href="#modal-premier-message">Contacter le vendeur</a>
         </div>
+
+        <% if(isAdmin) {
+        %>
+        <div class="col s3">
+          <a type="button" class="waves-effect waves-light modal-trigger btn red lighten-1" href="/epiflex/Delete?id=<%=product.getId()%>">Supprimer l'article</a>
+        </div>
+        <%
+          }
+        %>
 
 
         <form method="POST" action="Messagerie" id="modal-premier-message" class="modal">
@@ -76,7 +86,7 @@
     <div class="row">
       <div class="col s12">
         <div class="card-panel teal">
-          <span class="white-text"><%=product.getDescription()%>
+          <span class="white-text text_desc"><%=product.getDescription()%>
           </span>
         </div>
       </div>
