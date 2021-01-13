@@ -29,7 +29,7 @@ public class DeleteProductServlet extends ControlerServlet {
 	 * @param HttpServletRequest reponse
 	 */
   @Override
-  public void doGet(HttpServletRequest request, HttpServletResponse reponse){
+  public void doGet(HttpServletRequest request, HttpServletResponse reponse) throws IOException{
     AuthenticationHandler handler = new AuthenticationHandler(request);
     User user = handler.loadUser();
 
