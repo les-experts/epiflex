@@ -10,13 +10,17 @@
   <div class="col"><h2>Sélectionnez la personne à qui vous souhaitez envoyer un message<h2></div>
 </div>
 <div class="row center-align">
+
   <% for (User usr : users) {
   %>
     <div class="col s3">
-      <a class="waves-effect waves-light btn btn-contacter black"><%=usr.getPseudo()%></a>
+      <a class="waves-effect waves-light btn btn-contacter black" onclick="ajax_message(<%=usr.getId()%>)"><%=usr.getPseudo()%></a>
     </div>
   <% } %>
 </div>
+
+<section id="messageContent"></section>
+
 <% } else { %>
 <div class="row">
   <span>Vous n'avez jamais discuté avec un autre utilisateur.</span>

@@ -150,4 +150,14 @@
     <servlet-name>Message</servlet-name>
     <url-pattern>/Message</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>Discussion</servlet-name>
+    <servlet-class>controlers.Discussion</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Discussion</servlet-name>
+    <url-pattern>/Discussion</url-pattern>
+  </servlet-mapping>
 </web-app>

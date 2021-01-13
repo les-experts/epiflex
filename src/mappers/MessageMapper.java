@@ -154,6 +154,7 @@ public class MessageMapper {
 
         msg.setSender(senderObject);
         msg.setReceiver(receiverObject);
+        msg.setText(rs.getString("MSG_content"));
 
         allMessages.add(msg);
       }
