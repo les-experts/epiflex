@@ -66,15 +66,6 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>FormModification</servlet-name>
-    <servlet-class>controlers.FormModification</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>FormModification</servlet-name>
-    <url-pattern>/Profilee</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
     <servlet-name>PurchasePage</servlet-name>
     <servlet-class>controlers.PurchasePage</servlet-class>
   </servlet>

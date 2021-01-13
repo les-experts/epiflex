@@ -21,7 +21,7 @@
       }
     }%>
 </div>
-<form method="POST" action="/epiflex/Profilee">
+<form method="POST" action="/epiflex/Profile">
   <div class="row">
     <div class="input-field col s12 m8 offset-m2">
       <i class="material-icons prefix">account_circle</i>
