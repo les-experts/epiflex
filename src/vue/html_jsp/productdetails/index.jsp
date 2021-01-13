@@ -5,6 +5,8 @@
 
 <%
   Product product = (Product)request.getAttribute("product");
+  boolean isAdmin = (boolean) request.getAttribute("admin");
+  boolean isConnected = (boolean) request.getAttribute("isConnected");
 %>
 
 <div class="row">
@@ -22,33 +24,27 @@
       </div>
     </div>
 
-    <div class="row center-align">
-        <%
-              boolean isConnected = (boolean) request.getAttribute("isConnected");
-              boolean isAdmin = (boolean) request.getAttribute("admin");
-        %>
+    <% if(isAdmin) { %>
+    <div class="row">
+      <div class="col s6 offset-s3">
+        <a type="button" class="btn-action waves-effect waves-light modal-trigger btn red lighten-1" href="/epiflex/Delete?id=<%=product.getId()%>">Supprimer l'article</a>
+      </div>
+    </div>
+    <% } %>
 
-        <form method="GET" action="Panier" class="col <% if (isConnected) { out.print("s6"); } else { out.print("s12"); } %> ">
+
+    <div class="row center-align">
+
+        <form method="GET" action="Panier" class="col <% if (isConnected) { out.print("s6"); } else { out.print("s6 offset-s3"); } %> ">
           <input id="prodId" name="prodId" type="hidden" value="<%=product.getId()%>">
-          <button class="btn waves-effect waves-light green lighten-1" type="submit">Ajouter au panier</button>
+          <button class="btn waves-effect waves-light green lighten-1 btn-action" type="submit">Ajouter au panier</button>
         </form>
 
-        <% if(isConnected) {
-        %>
+        <% if(isConnected) { %>
 
-        <div class="col <% if (isAdmin) { out.print("s3"); } else { out.print("s6"); } %>">
-          <a type="button" class="waves-effect waves-light modal-trigger btn red lighten-1" href="#modal-premier-message">Contacter le vendeur</a>
+        <div class="col s6">
+          <a type="button" class="waves-effect btn-action waves-light modal-trigger btn blue lighten-1" href="#modal-premier-message">Contacter le vendeur</a>
         </div>
-
-        <% if(isAdmin) {
-        %>
-        <div class="col s3">
-          <a type="button" class="waves-effect waves-light modal-trigger btn red lighten-1" href="/epiflex/Delete?id=<%=product.getId()%>">Supprimer l'article</a>
-        </div>
-        <%
-          }
-        %>
-
 
         <form method="POST" action="Messagerie" id="modal-premier-message" class="modal">
           <div class="modal-content">

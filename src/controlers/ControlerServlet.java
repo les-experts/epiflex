@@ -3,6 +3,7 @@ package controlers;
 import javax.servlet .*;
 import javax.servlet.http .*;
 import java.util.ArrayList;
+import java.io.*;
 
 /**
  * Classe abtraite permettant de gérer les servlets liés à une jsp.
@@ -16,7 +17,7 @@ public abstract class ControlerServlet extends HttpServlet {
 	 * @param HttpServletRequest reponse
 	 */
 	@Override
-	public void doPost(HttpServletRequest requete, HttpServletResponse reponse) {
+	public void doPost(HttpServletRequest requete, HttpServletResponse reponse)  throws IOException {
 	  this.view(requete,reponse);
 	}
 
@@ -26,7 +27,7 @@ public abstract class ControlerServlet extends HttpServlet {
 	 * @param HttpServletRequest reponse
 	 */
 	@Override
-	public void doGet(HttpServletRequest requete, HttpServletResponse reponse){
+	public void doGet(HttpServletRequest requete, HttpServletResponse reponse) throws IOException{
 		this.view(requete,reponse);
 	}
 

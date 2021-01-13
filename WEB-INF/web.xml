@@ -122,6 +122,15 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>SuppressionPanierServlet</servlet-name>
+    <servlet-class>controlers.SuppressionPanierServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SuppressionPanierServlet</servlet-name>
+    <url-pattern>/SuppressionPanier</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>Delete</servlet-name>
     <servlet-class>controlers.DeleteProductServlet</servlet-class>
   </servlet>

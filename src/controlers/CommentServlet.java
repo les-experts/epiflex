@@ -84,7 +84,7 @@ public class CommentServlet extends ControlerServlet {
 
 
   public boolean verifInt(int data){
-    return data <= 5 && data >= 1;
+    return true;
   }
   public boolean verifText(String data){
     return true;
