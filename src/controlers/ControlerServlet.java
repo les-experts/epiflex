@@ -3,11 +3,12 @@ package controlers;
 import javax.servlet .*;
 import javax.servlet.http .*;
 import java.util.ArrayList;
+import java.io.*;
 
 public abstract class ControlerServlet extends HttpServlet {
 
 	@Override
-	public void doPost(HttpServletRequest requete, HttpServletResponse reponse) {
+	public void doPost(HttpServletRequest requete, HttpServletResponse reponse)  throws IOException {
 	  this.view(requete,reponse);
 	}
 

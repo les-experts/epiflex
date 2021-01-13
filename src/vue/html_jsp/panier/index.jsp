@@ -29,13 +29,15 @@
       <p id="priceProduct"><%=prod.getPrice() %>€</p>
     </div>
     <div class="row center-align">
-      <div class="col s12">
+      <div class="col s6">
         <a class="waves-effect waves-teal btn-flat" href="/epiflex/Product?id=<%=prod.getId()%>">Détails</a>
       </div>
-      <!--div class="col s6">
-        <button class="btn waves-effect waves-light" type="submit" name="confirmForm" >Supprimer du panier
+      <form method="POST" action="/epiflex/SuppressionPanier" class="col s6">
+        <input id="productToDelete" name="productToDelete" type="hidden" value="<%=prod.getId()%>">
+        <button class="btn waves-effect waves-light" type="submit">Supprimer du panier
         <i class="material-icons right">remove_shopping_cart</i>
-      </div-->
+      </button>
+      </form>
     </div>
   </div>
 </div>
