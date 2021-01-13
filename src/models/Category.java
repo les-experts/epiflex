@@ -3,6 +3,10 @@ import java.io.*;
 import java.text.*;
 import java.util.*;
 
+/**
+ * Javabean représentant une categorie.
+ * @author Alexandre Vigneron
+ */
 public class Category implements Serializable {
   private int id;
   private String label;

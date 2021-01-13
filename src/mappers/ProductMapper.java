@@ -12,12 +12,26 @@ import java.sql.ResultSet;
 import java.util.List;
 import java.util.ArrayList;
 
-
+/**
+ * Mapper permettant de faire le lien entre le site et la base de données pour les produits.
+ * Respecte le pattern singleton.
+ * @author Alexis Melo Da Silva, Alexandre Vigneron
+ */
 public class ProductMapper {
 
+  /**
+   * Instance du mapper.
+   */
   private static ProductMapper instance;
+
+  /**
+   * Connexion à la base via le driver.
+   */
   private Connection conn;
 
+  /**
+   * Constructeur de la classe.
+   */
   private ProductMapper() throws SQLException{
     try{
       ConnectionDB connDB = ConnectionDB.getInstance();
@@ -26,6 +40,10 @@ public class ProductMapper {
     catch(SQLException e){e.printStackTrace();}
   }
 
+  /**
+   * Retourne une instance de mapper. Cette instance est unique.
+   * @return ProductMapper instance du mapper
+   */
   public static ProductMapper getInstance() {
     try{
       if (instance == null) {
@@ -39,6 +57,10 @@ public class ProductMapper {
     }
   }
 
+  /**
+   * Retourne tous les produits.
+   * @return List<Product> liste des produits
+   */
   public List<Product> allProducts() {
     String req = "SELECT PRO_id, PRO_title, PRO_description, USR_id, PRO_price, CAT_id, PRO_date FROM Product;";
 
@@ -73,6 +95,11 @@ public class ProductMapper {
     }
   }
 
+  /**
+   * Retourne tous les produits d'un utilisateur.
+   * @param int idUrs id de l'utilisateur
+   * @return List<Product> liste des produits
+   */
   public List<Product> productsByUser(int idUrs) {
     String req = "SELECT PRO_id, PRO_title, PRO_description, USR_id, PRO_price, CAT_id, PRO_date FROM Product WHERE USR_id = ?;";
     try{
@@ -105,6 +132,11 @@ public class ProductMapper {
     }
   }
 
+  /**
+   * Retourne un produit en fonction de l'id.
+   * @param int idPro id du produit
+   * @return Product le produit
+   */
   public Product productById(int idPro) {
     String req = "SELECT PRO_id, PRO_title, PRO_description, USR_id, PRO_price, CAT_id, PRO_date FROM Product WHERE PRO_id = ?;";
     try{
@@ -136,6 +168,10 @@ public class ProductMapper {
     }
   }
 
+  /**
+   * Retourne l'id maximum compris dans la table.
+   * @return int id id max
+   */
   public int maxID(){
     String req = "SELECT max(PRO_id) AS nb FROM Product";
     try{
@@ -149,6 +185,14 @@ public class ProductMapper {
     }
   }
 
+  /**
+   * Permet d'insérer un commentaire.
+   * @param String title titre du produit
+   * @param String description description du produit
+   * @param int userId id du vendeur
+   * @param double price prix du produit
+   * @param int catId catégorie du produit
+   */
     public void insertProduct(String title, String description, int userId, double price, int catId){
       int idProduct = this.maxID()+1;
       String req = "INSERT INTO Product(PRO_id, PRO_title, PRO_description, USR_id, PRO_price, CAT_id, PRO_date) VALUES(?,?,?,?,?,?,date('now'))";

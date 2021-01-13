@@ -4,11 +4,26 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * Permet d'établir la connexion à la base de donnée SQLITE avec le driver jdbc.
+ * Respecte le pattern singloton.
+ * @author Alexandre Vigneron
+ */
 public class ConnectionDB {
 
+    /**
+     * Instance de ConnectionDB.
+     */
     private static ConnectionDB instance;
+
+    /**
+     * Connection à la base.
+     */
     private Connection conn;
 
+    /**
+     * Constructeur de la classe.
+     */
     private ConnectionDB() throws SQLException {
       try {
             // db parameters
@@ -22,10 +37,18 @@ public class ConnectionDB {
         }
     }
 
+    /**
+     * Retourne la connection à la db.
+     * @return Connection
+     */
     public Connection getConnection(){
       return this.conn;
     }
 
+    /**
+     * Retourne une instance de ConnectionDB.
+     * @return ConnectionDB
+     */
     public static ConnectionDB getInstance() throws SQLException {
       if (instance == null) {
           instance = new ConnectionDB();

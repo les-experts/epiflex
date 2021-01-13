@@ -12,11 +12,26 @@ import java.util.ArrayList;
 import java.sql.Date;
 import java.io.*;
 
+/**
+ * Mapper permettant de faire le lien entre le site et la base de données pour la messagerie.
+ * Respecte le pattern singleton.
+ * @author Alexis Melo Da Silva
+ */
 public class MessageMapper {
 
+  /**
+   * Instance du mapper.
+   */
   private static MessageMapper instance;
+
+  /**
+   * Connexion à la base via le driver.
+   */
   private Connection conn;
 
+  /**
+   * Constructeur de la classe.
+   */
   private MessageMapper() throws SQLException{
     try{
       ConnectionDB connDB = ConnectionDB.getInstance();
@@ -25,6 +40,10 @@ public class MessageMapper {
     catch(SQLException e){e.printStackTrace();}
   }
 
+  /**
+   * Retourne une instance de mapper. Cette instance est unique.
+   * @return MessageMapper instance du mapper
+   */
   public static MessageMapper getInstance() {
     try{
       if (instance == null) {
@@ -37,6 +56,10 @@ public class MessageMapper {
     }
   }
 
+  /**
+   * Retourne l'id maximum compris dans la table.
+   * @return int id id max
+   */
   public int maxID(){
     String req = "SELECT max(MSG_id) AS nb FROM Message";
     try{
@@ -50,6 +73,12 @@ public class MessageMapper {
     }
   }
 
+  /**
+   * Permet d'insérer un commentaire.
+   * @param int USR_sender id de l'envoyeur du message
+   * @param int USR_receiver id du destinataire du message
+   * @param String MSG_content contenu du message
+   */
   public void insert(int USR_sender, int USR_receiver, String MSG_content){
 
     int idmess = this.maxID()+1;
@@ -69,6 +98,11 @@ public class MessageMapper {
 		}
   }
 
+  /**
+   * Retourne tous les utilisateurs dont le sender a déja envoyé un message.
+   * @param int sender id de l'envoyeur
+   * @return List<User> liste des destinataires du sender
+   */
   public List<User> allUsersTalkedBefore(int sender) {
     String req = "SELECT USR_receiver from Message where USR_sender = ?";
 
@@ -94,6 +128,11 @@ public class MessageMapper {
     }
   }
 
+  /**
+   * Retourne tous les message que l'utilisateur a reçu.
+   * @param int sender id de l'utilisateur
+   * @return List<Message> liste des messages
+   */
   public List<Message> allMessagesReceived(int receiver) {
     String req = "SELECT MSG_id, USR_sender, USR_receiver, MSG_content, MSG_date from Message where USR_receiver = ?";
 
@@ -129,6 +168,12 @@ public class MessageMapper {
 
   }
 
+  /**
+   * Retourne tous les messages que deux User se sont envoyés.
+   * @param int sender id de l'envoyeur
+   * @param int receiver id du receveur
+   * @return List<Message> liste des messages
+   */
   public List<Message> allMessagesBetweenUsers(int receiver, int sender) {
     String req = "SELECT MSG_id, USR_sender, USR_receiver, MSG_content, MSG_date from Message where USR_receiver = ? and USR_sender = ?";
 

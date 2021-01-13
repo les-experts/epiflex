@@ -6,11 +6,26 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+/**
+ * Mapper permettant de faire le lien entre le site et la base de données pour les roles.
+ * Respecte le pattern singleton.
+ * @author Alexis Melo Da Silva
+ */
 public class RoleMapper {
 
+  /**
+   * Instance du mapper.
+   */
   private static RoleMapper instance;
+
+  /**
+   * Connexion à la base via le driver.
+   */
   private Connection conn;
 
+  /**
+   * Constructeur de la classe.
+   */
   private RoleMapper() throws SQLException{
     try{
       ConnectionDB connDB = ConnectionDB.getInstance();
@@ -19,6 +34,10 @@ public class RoleMapper {
     catch(SQLException e){e.printStackTrace();}
   }
 
+  /**
+   * Retourne une instance de mapper. Cette instance est unique.
+   * @return RoleMapper instance du mapper
+   */
   public static RoleMapper getInstance() {
     try{
       if (instance == null) {
@@ -31,6 +50,11 @@ public class RoleMapper {
     }
   }
 
+  /**
+   * Retourne un role en fonction de l'id.
+   * @param int idRol id du role
+   * @return Role le role
+   */
   public Role roleById(int idRol) {
 		String req = "SELECT ROL_id, ROL_label FROM Role WHERE ROL_id = ?;";
 		try{

@@ -9,12 +9,26 @@ import java.util.List;
 import java.util.LinkedList;
 import java.sql.Date;
 
-
+/**
+ * Mapper permettant de faire le lien entre le site et la base de données pour les commentaires.
+ * Respecte le pattern singleton.
+ * @author Leo Pacary
+ */
 public class CommentMapper {
 
+  /**
+   * Instance du mapper.
+   */
   private static CommentMapper instance;
+
+  /**
+   * Connexion à la base via le driver.
+   */
   private Connection conn;
 
+  /**
+   * Constructeur de la classe.
+   */
   private CommentMapper() throws SQLException{
     try{
       ConnectionDB connDB = ConnectionDB.getInstance();
@@ -23,6 +37,10 @@ public class CommentMapper {
     catch(SQLException e){e.printStackTrace();}
   }
 
+  /**
+   * Retourne une instance de mapper. Cette instance est unique.
+   * @return CommentMapper instance du mapper
+   */
   public static CommentMapper getInstance() {
     try{
       if (instance == null) {
@@ -35,6 +53,11 @@ public class CommentMapper {
     }
   }
 
+  /**
+   * Retourne les commentaires d'un produit.
+   * @param int idProduct id du produit
+   * @return List<Comment> la liste des commentaires sur le produit
+   */
   public List<Comment> getCommentByProduct(int idProduct){
 		String req = "SELECT COM_id, use.USR_pseudo, COM_rating, COM_content, COM_date FROM Comment com JOIN User use ON use.USR_id = com.USR_id WHERE PRO_id = ?;";
 		try{
@@ -61,6 +84,10 @@ public class CommentMapper {
 		}
   }
 
+  /**
+   * Retourne l'id maximum compris dans la table.
+   * @return int id id max
+   */
   public int maxID(){
     String req = "SELECT max(COM_id) as nb from COMMENT";
     try{
@@ -74,6 +101,13 @@ public class CommentMapper {
     }
   }
 
+  /**
+   * Permet d'insérer un commentaire.
+   * @param int PRO_id id du produit
+   * @param int USR_id id de l'User
+   * @param int COM_rating notation du produit
+   * @param String COM_content le texte du commentaire
+   */
   public void insert(int PRO_id, int USR_id, int COM_rating, String COM_content){
     int idcomm = this.maxID()+1;
     String req = "INSERT INTO Comment(COM_id,USR_id,COM_rating,COM_content,COM_date,PRO_id) VALUES(?,?,?,?,date('now'),?)";
@@ -93,6 +127,12 @@ public class CommentMapper {
 		}
   }
 
+  /**
+   * Permet de vérifier si un utilisateur a déja posté un commentaire pour ce produit.
+   * @param int idProduct id du produit concerné
+   * @param int idUser id de l'utilisateur
+   * @return boolean true si l'utilisateur a déja posté un commentaire pour ce produit
+   */
   public boolean hasAlreadyPost(int idProduct, int idUser){
     String req = "SELECT count(*) as nb from COMMENT where PRO_id = ? AND	USR_id = ?";
     try{

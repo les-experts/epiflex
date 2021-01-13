@@ -3,6 +3,10 @@ import java.io.*;
 import java.text.*;
 import java.util.*;
 
+/**
+ * Javabean représentant un commentaire.
+ * @author Leo Pacary
+ */
 public class Comment implements Serializable {
   private int id;
   private String pseudo;

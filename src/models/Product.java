@@ -3,6 +3,10 @@ import java.io.*;
 import java.text.*;
 import java.util.*;
 
+/**
+ * Javabean représentant un produit.
+ * @author Alexandre Vigneron
+ */
 public class Product implements Serializable {
   private int id;
   private String title;

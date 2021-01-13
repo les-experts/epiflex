@@ -3,6 +3,10 @@ import java.io.*;
 import java.text.*;
 import java.util.*;
 
+/**
+ * Javabean représentant un utilisateur.
+ * @author Alexandre Vigneron
+ */
 public class User implements Serializable {
   private int id;
   private Role role;

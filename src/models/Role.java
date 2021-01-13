@@ -3,6 +3,10 @@ import java.io.*;
 import java.text.*;
 import java.util.*;
 
+/**
+ * Javabean représentant un role.
+ * @author Alexandre Vigneron
+ */
 public class Role implements Serializable {
   private int id;
   private String label;

@@ -3,6 +3,10 @@ import java.io.*;
 import java.text.*;
 import java.util.*;
 
+/**
+ * Javabean représentant un message.
+ * @author Alexis Melo Da Silva
+ */
 public class Message implements Serializable {
   private int id;
   private String text;
